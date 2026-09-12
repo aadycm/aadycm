@@ -13,6 +13,8 @@
 
 </div>
 
+<img src="assets/divider.svg" alt="" width="100%">
+
 ## About
 
 I'm a computer science senior at Penn State. Most of what I build ends up being machine
@@ -51,6 +53,8 @@ actually opens. The model is usually the part that takes the least time.
   <img src="assets/stack.svg" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
 </picture>
 
+<img src="assets/divider.svg" alt="" width="100%">
+
 ## Selected Work
 
 ### HydroNode &nbsp;·&nbsp; [hydronode.in](https://hydronode.in)
@@ -62,6 +66,8 @@ actually opens. The model is usually the part that takes the least time.
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg">
   <img src="assets/projects/hydronode.svg" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
+
+<br>
 
 NFT hydroponics, a drip-irrigated terrace, a zoned sprinkler farm, aeroponic roses, and a
 saffron chamber with its own climate control. Every one of them runs its watering and safety
@@ -112,12 +118,16 @@ controls, and a monthly rollover that keeps the history sheet fast.
   <img src="assets/projects/semantic.svg" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
 </picture>
 
+<br>
+
 Everything is embedded and searched on the machine, so no notes leave it and there's no network
 round-trip in the loop.
 
 `Python` · `FastAPI` · `Sentence Transformers` · `SQLite`
 
 <sub>In progress · private repository</sub>
+
+<img src="assets/divider.svg" alt="" width="100%">
 
 ### Paper Trail
 
@@ -128,6 +138,8 @@ round-trip in the loop.
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg">
   <img src="assets/projects/papertrail.svg" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
+
+<br>
 
 Pulls each paper's claims and citations and graphs which results rest on which — so you can see
 the one finding everything else is leaning on.
@@ -149,7 +161,7 @@ the one finding everything else is leaning on.
     src="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=0D1117&stroke=30363D&ring=8B5CF6&fire=22D3EE&currStreakNum=F4F5F8&sideNums=F4F5F8&currStreakLabel=A8AEBB&sideLabels=A8AEBB&dates=8F96A4&excludeDaysLabel=8F96A4">
 </picture>
 
-<br><br>
+<br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=github_dark">
@@ -165,6 +177,8 @@ the one finding everything else is leaning on.
 </picture>
 
 </div>
+
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## How I Work
 
