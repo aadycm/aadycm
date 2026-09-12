@@ -3,15 +3,13 @@
      Setup + checklist: SETUP.md
      ──────────────────────────────────────────────────────────── -->
 
-<div align="center">
-
+<p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
   <img src="assets/hero.svg" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
 </picture>
-
-</div>
+</p>
 
 <img src="assets/divider.svg" alt="" width="100%">
 
@@ -47,11 +45,13 @@ actually opens. The model is usually the part that takes the least time.
 
 ## Stack
 
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
   <img src="assets/stack.svg" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
 </picture>
+</p>
 
 <img src="assets/divider.svg" alt="" width="100%">
 
@@ -61,13 +61,13 @@ actually opens. The model is usually the part that takes the least time.
 
 **Five growing systems on one live dashboard, each running its own controller.**
 
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg">
   <img src="assets/projects/hydronode.svg" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
-
-<br>
+</p>
 
 NFT hydroponics, a drip-irrigated terrace, a zoned sprinkler farm, aeroponic roses, and a
 saffron chamber with its own climate control. Every one of them runs its watering and safety
@@ -112,13 +112,13 @@ controls, and a monthly rollover that keeps the history sheet fast.
 
 **Ask your own notes a question instead of guessing which word you used.**
 
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg">
   <img src="assets/projects/semantic.svg" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
 </picture>
-
-<br>
+</p>
 
 Everything is embedded and searched on the machine, so no notes leave it and there's no network
 round-trip in the loop.
@@ -133,13 +133,13 @@ round-trip in the loop.
 
 **Turns a reading list of ML papers into a map of what actually depends on what.**
 
+<p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg">
   <img src="assets/projects/papertrail.svg" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
-
-<br>
+</p>
 
 Pulls each paper's claims and citations and graphs which results rest on which — so you can see
 the one finding everything else is leaning on.
