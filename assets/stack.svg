@@ -8,7 +8,7 @@
   --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
 }
       .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
       .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}

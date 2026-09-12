@@ -8,7 +8,7 @@
   --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
 }
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
@@ -50,16 +50,38 @@
 <text class="m" x="40" y="122" font-size="10.5" letter-spacing="1.5" fill="var(--label)">READING LIST</text>
 <rect class="box" x="40" y="136" width="190" height="248" rx="12"/>
 <g>
-  <rect class="row" x="60" y="162" width="132" height="8" rx="4" fill="var(--wire)"/>
-  <rect class="row" x="60" y="186" width="108" height="8" rx="4" fill="var(--wire)" style="animation-delay:-.5s"/>
-  <rect class="row" x="60" y="210" width="144" height="8" rx="4" fill="var(--wire)" style="animation-delay:-1s"/>
-  <rect class="row" x="60" y="234" width="96"  height="8" rx="4" fill="var(--wire)" style="animation-delay:-1.5s"/>
-  <rect class="row" x="60" y="258" width="126" height="8" rx="4" fill="var(--wire)" style="animation-delay:-2s"/>
-  <rect class="row" x="60" y="282" width="112" height="8" rx="4" fill="var(--wire)" style="animation-delay:-2.5s"/>
-  <rect class="row" x="60" y="306" width="140" height="8" rx="4" fill="var(--wire)" style="animation-delay:-3s"/>
-  <rect class="row" x="60" y="330" width="88"  height="8" rx="4" fill="var(--wire)" style="animation-delay:-3.5s"/>
+  <g class="row">
+    <text class="m" x="60" y="167" font-size="9" fill="var(--muted)">01</text>
+    <rect x="80" y="160" width="118" height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="172" width="74"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
+  <g class="row" style="animation-delay:-.5s">
+    <text class="m" x="60" y="197" font-size="9" fill="var(--muted)">02</text>
+    <rect x="80" y="190" width="96"  height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="202" width="58"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
+  <g class="row" style="animation-delay:-1s">
+    <text class="m" x="60" y="227" font-size="9" fill="var(--muted)">03</text>
+    <rect x="80" y="220" width="128" height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="232" width="86"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
+  <g class="row" style="animation-delay:-1.5s">
+    <text class="m" x="60" y="257" font-size="9" fill="var(--muted)">04</text>
+    <rect x="80" y="250" width="84"  height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="262" width="66"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
+  <g class="row" style="animation-delay:-2s">
+    <text class="m" x="60" y="287" font-size="9" fill="var(--muted)">05</text>
+    <rect x="80" y="280" width="112" height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="292" width="52"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
+  <g class="row" style="animation-delay:-2.5s">
+    <text class="m" x="60" y="317" font-size="9" fill="var(--muted)">06</text>
+    <rect x="80" y="310" width="124" height="7" rx="3.5" fill="var(--paper)"/>
+    <rect x="80" y="322" width="78"  height="4" rx="2"   fill="var(--wire)"/>
+  </g>
 </g>
-<text class="m" x="60" y="364" font-size="10" fill="var(--muted)">50 papers, no structure</text>
+<text class="m" x="60" y="356" font-size="9.5" fill="var(--muted)">…50 papers, no structure</text>
 
 <!-- arrow across -->
 <path d="M246 260 H292 M284 254 L292 260 L284 266" fill="none" stroke="var(--wire)" stroke-width="1.5"

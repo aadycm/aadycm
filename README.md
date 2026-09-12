@@ -15,24 +15,27 @@
 
 ## About
 
-I'm a computer science senior at Penn State who spends most of his time on **machine learning
-and the systems around it** — the data pipeline, the API, the thing that has to keep running
-when the network doesn't. The model is usually the easy part.
+I'm a computer science senior at Penn State. Most of what I build ends up being machine
+learning plus everything around it — the sensors, the pipeline, the API, the dashboard someone
+actually opens. The model is usually the part that takes the least time.
 
-- **I like problems where the data is messy.** Clean benchmarks don't teach you much.
-- **Ship it, then judge it.** A rough version in someone's hands beats a perfect notebook.
-- **Assume it will fail.** Watchdogs, fallbacks, and honest logs beat clever code that only works.
+- Most of my projects started because something annoyed me. HydroNode exists because I got
+  tired of plants dying while I was away.
+- I'd rather have something rough running this week than something perfect next month. The
+  rough version is what tells you which half of the plan was wrong.
+- I've spent enough nights chasing a crash that turned out to be a loose wire to care a lot
+  about logs, watchdogs, and things that fail loudly.
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-**Building** — HydroNode, plus two AI projects in early stages.
+**Right now** — teaching HydroNode to look at the plants instead of just measuring the air.
 
 </td>
 <td width="50%" valign="top">
 
-**Learning** — retrieval-augmented generation, model evaluation, and how to make inference cheap.
+**Figuring out** — how small a model can get before it stops being useful on a board with no GPU.
 
 </td>
 </tr>
@@ -52,39 +55,46 @@ when the network doesn't. The model is usually the easy part.
 
 ### HydroNode &nbsp;·&nbsp; [hydronode.in](https://hydronode.in)
 
-**A self-built IoT platform running two growing systems — NFT hydroponics and a drip-irrigated
-terrace garden — on one live dashboard.**
+**Five growing systems on one live dashboard, each running its own controller.**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg">
-  <img src="assets/projects/hydronode.svg" alt="HydroNode two-path architecture: growing nodes stream live readings to Firebase and post a periodic history to Google Sheets, both feeding one dashboard." width="100%">
+  <img src="assets/projects/hydronode.svg" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
 
-Most cloud-connected garden projects stop watering when the WiFi drops. HydroNode inverts that:
-**every watering and safety decision runs on the microcontroller**, and the network exists only
-for reporting and remote control. Two boards — an Arduino Nano ESP32 and an Uno R4 WiFi — each
-push live readings into Firebase Realtime Database while posting a periodic row to their own
-Google Apps Script backend, giving a real-time view and a rolling 30-day history from the same
-device without either path being able to break the other.
+NFT hydroponics, a drip-irrigated terrace, a zoned sprinkler farm, aeroponic roses, and a
+saffron chamber with its own climate control. Every one of them runs its watering and safety
+logic **on the board**, not in the cloud — most cloud-connected garden projects stop watering
+when the WiFi drops, and that seemed like the wrong way round.
 
-The engineering I'm proudest of is the failure handling:
+Each node pushes live readings into Firebase Realtime Database while posting a periodic row to
+its own Google Apps Script backend. That gives a real-time view and a rolling 30-day history
+from the same device, without either path being able to break the other.
+
+**Computer vision**, the part I'm working on now: a camera on the rig classifies frames
+on-device rather than shipping them anywhere. It's learning to flag leaf stress and
+discolouration early, tell which stage the roses are at so the misting cycle can follow the
+bloom instead of a fixed clock, and spot saffron flowers opening so harvest doesn't miss the
+window. Only the label leaves the property — never the image.
+
+The parts I'm most pleased with are all about failure:
 
 - **Offline spool** — when WiFi drops, history rows buffer on-device and replay later with their
   original timestamps, so an outage leaves no gap in the analytics.
-- **Self-diagnosing reboots** — the board pushes its reset cause, boot counter, and lowest free
-  memory to my phone on every restart. That's how I tracked down a real random-reboot bug
-  without ever tethering a laptop to it.
+- **Reboots that explain themselves** — the board texts my phone its reset cause, boot counter,
+  and lowest free memory on every restart. That's how I found a random-reboot bug without ever
+  tethering a laptop to it.
 - **Fail-safe actuation** — hardware watchdog, pump guaranteed OFF on boot and after any hang,
   and a max-run cap that force-stops a cycle that overruns.
-- **Heartbeat liveness** — the dashboard marks a node dead 90 seconds after its heartbeat stops,
-  which is a different question from whether the readings changed.
-- **Sensor beats forecast** — dual debounced rain sensors cancel a scheduled watering, and the
+- **Heartbeat liveness** — a node is marked dead 90 seconds after its heartbeat stops, which is
+  a different question from whether the readings changed.
+- **Sensors beat forecasts** — dual debounced rain sensors cancel a scheduled watering, and the
   device's own reading overrides the weather API.
 
-On top of that: VPD computed on-device rather than raw temperature and humidity, a calendar
-heat-map of how well conditions held in band, per-user database rules so only a garden's owner
-can touch its controls, and a monthly rollover that keeps the history sheet fast.
+Plus VPD computed on-device rather than raw temperature and humidity, a calendar heat-map of how
+well conditions held in band, per-user database rules so only a garden's owner can touch its
+controls, and a monthly rollover that keeps the history sheet fast.
 
 `C++ (Arduino)` · `ESP32 / Renesas RA4M1` · `Firebase RTDB` · `Google Apps Script` · `RS485 Modbus` · `Vanilla JS PWA` · `Vercel`
 
@@ -94,7 +104,7 @@ can touch its controls, and a monthly rollover that keeps the history sheet fast
 
 ### Semantic Notes
 
-**A local-first note app that answers questions about your own notes.**
+**Ask your own notes a question instead of guessing which word you used.**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg">
@@ -102,13 +112,12 @@ can touch its controls, and a monthly rollover that keeps the history sheet fast
   <img src="assets/projects/semantic.svg" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
 </picture>
 
-Keyword search fails exactly when you need it — when you can't remember the words you used.
-This embeds every note on the device and answers plain questions against them, so nothing is
-uploaded and there's no cloud round-trip in the loop.
+Everything is embedded and searched on the machine, so no notes leave it and there's no network
+round-trip in the loop.
 
 `Python` · `FastAPI` · `Sentence Transformers` · `SQLite`
 
-<sub>In progress</sub>
+<sub>In progress · private repository</sub>
 
 ### Paper Trail
 
@@ -120,38 +129,30 @@ uploaded and there's no cloud round-trip in the loop.
   <img src="assets/projects/papertrail.svg" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
 
-Reading fifty papers leaves you with fifty summaries and no structure. This extracts each
-paper's claims and citations and builds a graph of which results rest on which — so a line of
-work shows you where it actually holds up, and which single result everything else is leaning on.
+Pulls each paper's claims and citations and graphs which results rest on which — so you can see
+the one finding everything else is leaning on.
 
 `Python` · `PyTorch` · `React` · `Neo4j`
 
-<sub>In progress</sub>
+<sub>In progress · private repository</sub>
 
 <img src="assets/divider.svg" alt="" width="100%">
 
 ## Activity
 
-<div align="center">
-
-<a href="https://github.com/aadycm">
-  <img height="150" alt="GitHub statistics"
-    src="https://github-readme-stats.vercel.app/api?username=aadycm&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&hide_title=true&bg_color=0D1117&text_color=A8AEBB&icon_color=8B5CF6&ring_color=8B5CF6">
-</a>
-<a href="https://github.com/aadycm">
-  <img height="150" alt="Most used languages"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=aadycm&layout=compact&langs_count=6&hide_border=true&hide_title=true&bg_color=0D1117&text_color=A8AEBB">
-</a>
-
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/focus.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/focus-light.svg">
+  <img src="assets/focus.svg" alt="Where the work goes: embedded firmware, machine learning, backend and data, frontend, infrastructure — with a recent activity trace." width="100%">
+</picture>
 
 ## How I Work
 
-> **Simple beats clever.** The best PR is usually the one that deletes code.
+> I'd rather delete code than add it.
 >
-> **Ship to learn.** Real users find the flaws a spec never will.
+> Nothing is finished until someone else has used it and told me what's wrong with it.
 >
-> **Design for the failure.** Anything that can hang, will — at 3am, while you're asleep.
+> Anything that can hang, will — usually at 3am, while I'm asleep.
 
 <img src="assets/divider.svg" alt="" width="100%">
 

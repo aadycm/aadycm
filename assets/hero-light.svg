@@ -8,7 +8,7 @@
   --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
   --gridC:#0D1117; --gridA:.04;
   --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
-  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4;
+  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4; --paper:#9AA2B0; --track:#EDEFF3;
 }
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:'SF Mono','JetBrains Mono','Fira Code',ui-monospace,Menlo,Consolas,monospace}
@@ -57,13 +57,13 @@
     .t0{animation:type0 21600ms linear infinite}
     .c0{animation:caret0 21600ms linear infinite}
     @keyframes type1{0%{transform:scaleX(0)}33.333%{transform:scaleX(0);animation-timing-function:steps(43,end)}43.519%{transform:scaleX(1);animation-timing-function:linear}57.407%{transform:scaleX(1);animation-timing-function:steps(43,end)}63.426%{transform:scaleX(0)}100%{transform:scaleX(0)}}
-    @keyframes caret1{0%{opacity:0;transform:translateX(0)}33.333%{opacity:1;transform:translateX(0);animation-timing-function:steps(43,end)}43.519%{opacity:1;transform:translateX(559px);animation-timing-function:linear}57.407%{opacity:1;transform:translateX(559px);animation-timing-function:steps(43,end)}63.426%{opacity:1;transform:translateX(0)}63.611%{opacity:0;transform:translateX(0)}100%{opacity:0}}
+    @keyframes caret1{0%{opacity:0;transform:translateX(0)}33.148%{opacity:0;transform:translateX(0)}33.333%{opacity:1;transform:translateX(0);animation-timing-function:steps(43,end)}43.519%{opacity:1;transform:translateX(559px);animation-timing-function:linear}57.407%{opacity:1;transform:translateX(559px);animation-timing-function:steps(43,end)}63.426%{opacity:1;transform:translateX(0)}63.611%{opacity:0;transform:translateX(0)}100%{opacity:0}}
     .t1{animation:type1 21600ms linear infinite}
     .c1{animation:caret1 21600ms linear infinite}
     .t1{transform:scaleX(0)}
     .c1{opacity:0}
     @keyframes type2{0%{transform:scaleX(0)}66.667%{transform:scaleX(0);animation-timing-function:steps(29,end)}76.852%{transform:scaleX(1);animation-timing-function:linear}90.741%{transform:scaleX(1);animation-timing-function:steps(29,end)}96.759%{transform:scaleX(0)}100%{transform:scaleX(0)}}
-    @keyframes caret2{0%{opacity:0;transform:translateX(0)}66.667%{opacity:1;transform:translateX(0);animation-timing-function:steps(29,end)}76.852%{opacity:1;transform:translateX(377px);animation-timing-function:linear}90.741%{opacity:1;transform:translateX(377px);animation-timing-function:steps(29,end)}96.759%{opacity:1;transform:translateX(0)}96.944%{opacity:0;transform:translateX(0)}100%{opacity:0}}
+    @keyframes caret2{0%{opacity:0;transform:translateX(0)}66.481%{opacity:0;transform:translateX(0)}66.667%{opacity:1;transform:translateX(0);animation-timing-function:steps(29,end)}76.852%{opacity:1;transform:translateX(377px);animation-timing-function:linear}90.741%{opacity:1;transform:translateX(377px);animation-timing-function:steps(29,end)}96.759%{opacity:1;transform:translateX(0)}96.944%{opacity:0;transform:translateX(0)}100%{opacity:0}}
     .t2{animation:type2 21600ms linear infinite}
     .c2{animation:caret2 21600ms linear infinite}
     .t2{transform:scaleX(0)}

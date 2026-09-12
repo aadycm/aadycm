@@ -24,7 +24,7 @@ DARK=':root{
   --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
 }'
 
 LIGHT=':root{
@@ -34,7 +34,7 @@ LIGHT=':root{
   --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
   --gridC:#0D1117; --gridA:.04;
   --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
-  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4;
+  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4; --paper:#9AA2B0; --track:#EDEFF3;
 }'
 
 theme() { # theme <src> <out> <vars>
@@ -95,12 +95,17 @@ build_typing() {
       printf '%s%%{transform:scaleX(1);animation-timing-function:steps(%s,end)}' "$pc" "$chars"
       printf '%s%%{transform:scaleX(0)}100%%{transform:scaleX(0)}}\n' "$pd"
 
-      # caret keyframes — travels with the text, hidden outside its slot
+      # caret keyframes — travels with the text, hidden outside its slot.
+      # The keyframe at pa0 holds opacity at 0 right up to the slot: without it
+      # the caret fades in linearly from 0%, leaving a ghost cursor blinking at
+      # the start of the line for the whole time another phrase is on screen.
       printf '    @keyframes caret%s{' "$i"
       if [ "$a" -eq 0 ]; then
         printf '0%%{opacity:1;transform:translateX(0);animation-timing-function:steps(%s,end)}' "$chars"
       else
+        pa0=$(pct $(( a - 40 )) )
         printf '0%%{opacity:0;transform:translateX(0)}'
+        printf '%s%%{opacity:0;transform:translateX(0)}' "$pa0"
         printf '%s%%{opacity:1;transform:translateX(0);animation-timing-function:steps(%s,end)}' "$pa" "$chars"
       fi
       printf '%s%%{opacity:1;transform:translateX(%spx);animation-timing-function:linear}' "$pb" "$travel"
@@ -156,6 +161,12 @@ for card in src/card-*.svg; do
   name=$(basename "$card" .svg | sed 's/^card-//')
   theme "$card" "assets/projects/$name.svg"       "$DARK"
   theme "$card" "assets/projects/$name-light.svg" "$LIGHT"
+done
+
+for panel in src/panel-*.svg; do
+  name=$(basename "$panel" .svg | sed 's/^panel-//')
+  theme "$panel" "assets/$name.svg"       "$DARK"
+  theme "$panel" "assets/$name-light.svg" "$LIGHT"
 done
 
 # ─────────────────────────────────────────────  divider

@@ -75,7 +75,7 @@ Speed lives just above them: `TYPE_MS`, `HOLD_MS`, `DEL_MS`, `PAUSE_MS`.
 
 ## What animates
 
-Twenty effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
+Twenty-eight effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
 
 | Asset | Motion | Cycle |
 |---|---|---|
@@ -129,7 +129,7 @@ The Activity section uses `github-readme-stats.vercel.app`. It's the standard ch
 ## Still to do
 
 - [x] **HydroNode** — written from the actual source. Repo link removed (private); hydronode.in is linked instead.
-- [ ] **Semantic Notes and Paper Trail don't exist yet.** They're drafts describing intent — no metrics, no repo links, marked "In progress". Either build them and add links, or delete those two `<table>` blocks.
+- [ ] **Semantic Notes and Paper Trail don't exist yet.** Marked "In progress · private repository" — no metrics, no links. Build them or delete those two blocks.
 - [ ] **Check the stack is actually yours.** The six `L_*` lists in `build.sh` are a plausible set for an AI-focused CS senior, not a record of what you've used. Cut anything you wouldn't want to be asked about in an interview.
 - [ ] **Project screenshots.** Each project now has a hand-drawn animated diagram in `src/card-*.svg`. If you want real screenshots instead, use **1200 × 630** (PNG or WebP, under ~400 KB). GIFs: same size, under 5 MB, ≤15fps. If you swap `.svg` for `.png`, update the `src` in `README.md`.
 - [ ] Open your profile in **both light and dark** GitHub themes, and on a phone.
