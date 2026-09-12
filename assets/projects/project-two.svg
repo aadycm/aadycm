@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Project screenshot placeholder">
+  <defs><style>.m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}</style></defs>
+  <rect width="1200" height="630" rx="14" fill="#0D1117"/>
+  <rect x=".75" y=".75" width="1198.5" height="628.5" rx="14" fill="none" stroke="#30363D" stroke-width="1.5"/>
+  <g transform="translate(600,300)" fill="none" stroke="#5B5F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-34" y="-26" width="68" height="52" rx="6"/>
+    <path d="M-34 12 L-12 -8 L4 8 L16 -2 L34 12"/>
+    <circle cx="14" cy="-12" r="4.5"/>
+  </g>
+  <text class="m" x="600" y="376" text-anchor="middle" font-size="15" letter-spacing="1.8" fill="#71767F">SCREENSHOT 1200 x 630</text>
+</svg>

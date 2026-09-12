@@ -1,0 +1,136 @@
+# Setup — github.com/aadycm
+
+## What's in here
+
+```
+aadycm/                        ← repo name must equal your username
+├── README.md                  ← rendered on your profile page
+├── SETUP.md                   ← this file (delete it once you're set up)
+├── build.sh                   ← regenerates every SVG in assets/
+├── src/                       ← edit these, not assets/
+│   ├── hero.svg
+│   └── cta.svg
+└── assets/                    ← GENERATED — do not hand-edit
+    ├── hero.svg / hero-light.svg      1280 × 300
+    ├── stack.svg / stack-light.svg    1280 × 434
+    ├── cta.svg / cta-light.svg        1280 × 180
+    ├── divider.svg                    1280 × 12
+    └── projects/*.svg                 1200 × 630 placeholders
+```
+
+Everything in `assets/` is produced by `build.sh` from `src/` plus the palettes, phrases and stack lists inside the script. Each asset is generated twice — dark and light — from one source, so the two can never drift apart. Commit `assets/` anyway; GitHub serves those files directly.
+
+---
+
+## Putting it on GitHub
+
+**1. Create the repo.** On github.com click **+** (top right) → **New repository**. Name it exactly `aadycm`. GitHub will show a note saying you found a special repository — that confirms it's the profile one. Set it **Public**. **Do not tick "Add a README"** — you already have one, and an empty one would collide.
+
+**2. Push these files.** From this folder:
+
+```bash
+git init && git add . && git commit -m "Profile" && git branch -M main && git remote add origin https://github.com/aadycm/aadycm.git && git push -u origin main
+```
+
+**3. Check it.** Go to github.com/aadycm. The README renders at the top of your profile.
+
+### No command line?
+
+Create the empty repo as above, then on its page click **uploading an existing file** and drag in `README.md`, the `assets` folder, `src`, and `build.sh` together. Dragging folders preserves their structure, which matters — the README references `assets/hero.svg` by path.
+
+### Two things that trip people up
+
+- The repo name must be **exactly** `aadycm`. Anything else and GitHub treats it as an ordinary repo, and nothing appears on your profile.
+- After pushing an updated SVG, GitHub caches images through its proxy. Hard-refresh (Ctrl+Shift+R); it can lag a few minutes.
+
+---
+
+## Editing
+
+Edit `src/` or the lists in `build.sh`, then:
+
+```bash
+sh build.sh
+```
+
+**Typing loop** — the line under your name. Edit in `build.sh`:
+
+```sh
+PHRASE_1="CS senior at Penn State, building AI systems."
+PHRASE_2="I turn research ideas into things that run."
+PHRASE_3="Currently building HydroNode."
+```
+
+Character counts, caret travel, cycle length and every keyframe percentage are computed for you. Keep each under ~60 characters. Set one to `""` to use fewer.
+
+Speed lives just above them: `TYPE_MS`, `HOLD_MS`, `DEL_MS`, `PAUSE_MS`.
+
+**Stack** — the six `L_*` lines in `build.sh`. Underscores become spaces (`Hugging_Face` → `Hugging Face`); widths, wrapping and the SVG height are computed.
+
+**Hero and CTA copy** — the `<text>` elements in `src/hero.svg` and `src/cta.svg`.
+
+**Colour** — the `DARK` and `LIGHT` blocks at the top of `build.sh`. Change `--v` (violet) and `--c` (cyan) to re-tint everything at once.
+
+---
+
+## What animates
+
+Twenty effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
+
+| Asset | Motion | Cycle |
+|---|---|---|
+| Hero | Violet→cyan light flows through the letters of your name | 7s |
+| Hero | Typewriter loops through the three phrases with a blinking caret | 21.6s |
+| Hero | White sheen sweeps across the name | 11s |
+| Hero | Accent rule stretches and brightens | 7s |
+| Hero | Two colour washes drift and breathe | 16s |
+| Hero | Background grid drifts diagonally | 30s |
+| Hero | Five motes rise and fade | 15–21s |
+| Hero | Light runs the card border | 9s |
+| Hero | Content fades up on load | once |
+| Stack | Violet band scans across the panel | 14s |
+| Stack | **Every chip lights up as the band reaches it** | 14s |
+| Stack | Row hairlines draw in left to right | once |
+| Stack | Rows and chips fade up on a stagger | once |
+| Divider | A light crosses the rule | 11s |
+| Divider | A second, fainter light crosses back | 17s |
+| Divider | Centre node pulses | 5s |
+| CTA | Sheen sweeps the headline | 8s |
+| CTA | Light runs the card border | 8s |
+| CTA | Halo breathes | 12s |
+| CTA | Email pill border brightens, arrow nudges | 4.5s / 3.6s |
+
+The chip glow is **synced, not random** — `build.sh` computes each chip's `animation-delay` from its x position and the band's speed, so they light in sequence as the band arrives. Change the stack lists and the sync recalculates.
+
+Cycle lengths are deliberately mismatched so nothing ever pulses in unison.
+
+### Why nothing starts at `opacity: 0`
+
+Every animated element is **visible at rest**; the animation's `backwards` fill hides it only while its delay runs. GitHub's mobile app, link previews and some feed readers render SVGs without running CSS animations — had these been `opacity: 0` by default, which is the obvious way to write an entrance, your name would be permanently invisible in all of them.
+
+Keep that property if you edit the files. The test: delete the `<style>` block and the SVG must still show everything. (For the typewriter, `PHRASE_1` shows and the rest stay hidden — never overlapping text.)
+
+Everything also honours `prefers-reduced-motion: reduce`.
+
+**Want less motion?** Each `<style>` block has one line per effect — remove the class from an element and it renders at rest. The biggest ones to drop first are `.flow`, `.grid`, `.runner` and `.scan`.
+
+---
+
+## The stats cards
+
+The Activity section uses `github-readme-stats.vercel.app`. It's the standard choice, themed here to match, but it's community-run and rate-limits under load. Three options:
+
+1. **Keep it.** Fine for most people. If it's briefly down, the image shows alt text.
+2. **Self-host** — fork `anuraghazra/github-readme-stats`, deploy to your own Vercel, swap the hostname in both URLs.
+3. **Delete the section.** Your real contribution graph already appears below the README on your profile, so little is lost.
+
+---
+
+## Still to do
+
+- [ ] **HydroNode description.** `README.md` has `DESCRIBE_HYDRONODE`, `DESCRIBE_THE_PROBLEM` and two `TECH` chips waiting. This is the only placeholder left.
+- [ ] **Semantic Notes and Paper Trail don't exist yet.** They're drafts describing intent — no metrics, no repo links, marked "In progress". Either build them and add links, or delete those two `<table>` blocks.
+- [ ] **Check the stack is actually yours.** The six `L_*` lists in `build.sh` are a plausible set for an AI-focused CS senior, not a record of what you've used. Cut anything you wouldn't want to be asked about in an interview.
+- [ ] **Project screenshots.** `assets/projects/*.svg` are placeholders. Real ones go at **1200 × 630** (PNG or WebP, under ~400 KB). GIFs: same size, under 5 MB, ≤15fps. If you swap `.svg` for `.png`, update the `src` in `README.md`.
+- [ ] Open your profile in **both light and dark** GitHub themes, and on a phone.
+- [ ] Delete this file.

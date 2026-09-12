@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 434" width="1280" height="434" role="img" aria-label="Tech stack by category">
+  <defs>
+    <style>
+:root{
+  --bg:#FFFFFF; --border:#D1D9E0;
+  --v:#7C3AED; --c:#0E7490; --live:#059669; --washA:.05;
+  --nameA:#0D0E11; --text:#33373F; --muted:#565C68; --dim:#666C79;
+  --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
+  --gridC:#0D1117; --gridA:.04;
+  --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
+}
+      .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+      .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+      @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes scan{0%{transform:translateX(0)}55%,100%{transform:translateX(1700px)}}
+      @keyframes chipGlow{0%,100%{stroke:var(--chipStroke)}2%{stroke:var(--v)}3%{stroke:var(--v)}7%{stroke:var(--chipStroke)}}
+      @keyframes drawLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+      .in{animation:rise .7s cubic-bezier(.16,.84,.24,1) backwards}
+      .chip{animation:pop .5s cubic-bezier(.16,.84,.24,1) backwards}
+      .chipR{animation:chipGlow 14000ms linear infinite}
+      .hair{transform-box:fill-box;transform-origin:left center;
+        animation:drawLine .9s cubic-bezier(.16,.84,.24,1) backwards}
+      .scan{animation:scan 14000ms linear 2000ms infinite}
+      @media (prefers-reduced-motion:reduce){
+        .in,.chip,.chipR,.hair,.scan{animation:none!important}
+        .scan{display:none}
+        .hair{transform:none}
+      }
+    </style>
+    <linearGradient id="scanG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--v)" stop-opacity="0"/>
+      <stop offset="50%" stop-color="var(--v)" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="var(--v)" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="panelClip"><rect x=".75" y=".75" width="1278.5" height="432" rx="16"/></clipPath>
+  </defs>
+  <rect width="1280" height="434" fill="var(--bg)"/>
+  <rect x=".75" y=".75" width="1278.5" height="432.5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+  <g transform="translate(0,52)"><g class="in" style="animation-delay:0ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">LANGUAGES</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:120ms"><rect class="chipR" style="animation-delay:3887ms" width="68" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="34" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Python</text></g></g>
+    <g transform="translate(324,0)"><g class="chip" style="animation-delay:160ms"><rect class="chipR" style="animation-delay:4295ms" width="96" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="48" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">TypeScript</text></g></g>
+    <g transform="translate(428,0)"><g class="chip" style="animation-delay:200ms"><rect class="chipR" style="animation-delay:4671ms" width="54" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="27" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Java</text></g></g>
+    <g transform="translate(490,0)"><g class="chip" style="animation-delay:240ms"><rect class="chipR" style="animation-delay:4902ms" width="33" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="16" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">C</text></g></g>
+    <g transform="translate(531,0)"><g class="chip" style="animation-delay:280ms"><rect class="chipR" style="animation-delay:5119ms" width="47" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="23" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">SQL</text></g></g>
+    <rect class="hair" style="animation-delay:240ms" x="72" y="44" width="1136" height="1" fill="var(--border)"/>
+  </g></g>
+  <g transform="translate(0,114)"><g class="in" style="animation-delay:90ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">AI / ML</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:210ms"><rect class="chipR" style="animation-delay:3901ms" width="75" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="37" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">PyTorch</text></g></g>
+    <g transform="translate(331,0)"><g class="chip" style="animation-delay:250ms"><rect class="chipR" style="animation-delay:4358ms" width="110" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="55" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Hugging Face</text></g></g>
+    <g transform="translate(449,0)"><g class="chip" style="animation-delay:290ms"><rect class="chipR" style="animation-delay:4843ms" width="89" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="44" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">LangChain</text></g></g>
+    <g transform="translate(546,0)"><g class="chip" style="animation-delay:330ms"><rect class="chipR" style="animation-delay:5332ms" width="110" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="55" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">scikit-learn</text></g></g>
+    <g transform="translate(664,0)"><g class="chip" style="animation-delay:370ms"><rect class="chipR" style="animation-delay:5772ms" width="68" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="34" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">OpenCV</text></g></g>
+    <rect class="hair" style="animation-delay:330ms" x="72" y="44" width="1136" height="1" fill="var(--border)"/>
+  </g></g>
+  <g transform="translate(0,176)"><g class="in" style="animation-delay:180ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">BACKEND</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:300ms"><rect class="chipR" style="animation-delay:3901ms" width="75" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="37" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">FastAPI</text></g></g>
+    <g transform="translate(331,0)"><g class="chip" style="animation-delay:340ms"><rect class="chipR" style="animation-delay:4277ms" width="75" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="37" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Node.js</text></g></g>
+    <g transform="translate(414,0)"><g class="chip" style="animation-delay:380ms"><rect class="chipR" style="animation-delay:4621ms" width="61" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="30" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Flask</text></g></g>
+    <g transform="translate(483,0)"><g class="chip" style="animation-delay:420ms"><rect class="chipR" style="animation-delay:4997ms" width="89" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="44" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">REST APIs</text></g></g>
+    <rect class="hair" style="animation-delay:420ms" x="72" y="44" width="1136" height="1" fill="var(--border)"/>
+  </g></g>
+  <g transform="translate(0,238)"><g class="in" style="animation-delay:270ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">FRONTEND</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:390ms"><rect class="chipR" style="animation-delay:3869ms" width="61" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="30" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">React</text></g></g>
+    <g transform="translate(317,0)"><g class="chip" style="animation-delay:430ms"><rect class="chipR" style="animation-delay:4214ms" width="75" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="37" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Next.js</text></g></g>
+    <g transform="translate(400,0)"><g class="chip" style="animation-delay:470ms"><rect class="chipR" style="animation-delay:4671ms" width="110" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="55" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Tailwind CSS</text></g></g>
+    <rect class="hair" style="animation-delay:510ms" x="72" y="44" width="1136" height="1" fill="var(--border)"/>
+  </g></g>
+  <g transform="translate(0,300)"><g class="in" style="animation-delay:360ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">DATA</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:480ms"><rect class="chipR" style="animation-delay:3951ms" width="96" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="48" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">PostgreSQL</text></g></g>
+    <g transform="translate(352,0)"><g class="chip" style="animation-delay:520ms"><rect class="chipR" style="animation-delay:4372ms" width="75" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="37" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">MongoDB</text></g></g>
+    <g transform="translate(435,0)"><g class="chip" style="animation-delay:560ms"><rect class="chipR" style="animation-delay:4716ms" width="61" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="30" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Redis</text></g></g>
+    <g transform="translate(504,0)"><g class="chip" style="animation-delay:600ms"><rect class="chipR" style="animation-delay:5079ms" width="82" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="41" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Pinecone</text></g></g>
+    <rect class="hair" style="animation-delay:600ms" x="72" y="44" width="1136" height="1" fill="var(--border)"/>
+  </g></g>
+  <g transform="translate(0,362)"><g class="in" style="animation-delay:450ms">
+    <text class="m" x="72" y="20" font-size="11.5" letter-spacing="1.6" fill="var(--label)">INFRA / OPS</text>
+    <g transform="translate(248,0)"><g class="chip" style="animation-delay:570ms"><rect class="chipR" style="animation-delay:3838ms" width="47" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="23" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">AWS</text></g></g>
+    <g transform="translate(303,0)"><g class="chip" style="animation-delay:610ms"><rect class="chipR" style="animation-delay:4137ms" width="68" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="34" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Docker</text></g></g>
+    <g transform="translate(379,0)"><g class="chip" style="animation-delay:650ms"><rect class="chipR" style="animation-delay:4431ms" width="47" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="23" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Git</text></g></g>
+    <g transform="translate(434,0)"><g class="chip" style="animation-delay:690ms"><rect class="chipR" style="animation-delay:4857ms" width="124" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="62" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">GitHub Actions</text></g></g>
+    <g transform="translate(566,0)"><g class="chip" style="animation-delay:730ms"><rect class="chipR" style="animation-delay:5310ms" width="61" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="30" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">Linux</text></g></g>
+  </g></g>
+  <g clip-path="url(#panelClip)"><rect class="scan" x="-320" y="0" width="260" height="434" fill="url(#scanG)"/></g>
+</svg>

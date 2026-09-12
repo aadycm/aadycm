@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 180" width="1280" height="180" role="img" aria-label="Have an interesting problem? Let's talk.">
+<defs>
+  <style>
+    __VARS__
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+
+    @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
+    .d1{animation-delay:0s}.d2{animation-delay:.12s}.d3{animation-delay:.24s}
+
+    @keyframes nudge{0%,72%,100%{transform:translateX(0)}84%{transform:translateX(4px)}}
+    .arrow{animation:nudge 3.6s cubic-bezier(.3,.7,.3,1) infinite}
+
+    @keyframes breathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+    .halo{transform-box:fill-box;transform-origin:center;animation:breathe 12s ease-in-out infinite}
+
+    @keyframes sheen{0%{transform:translateX(-420px)}45%,100%{transform:translateX(420px)}}
+    .sheen{animation:sheen 8s cubic-bezier(.45,0,.3,1) 2s infinite}
+
+    @keyframes pillGlow{0%,100%{stroke:var(--border)}50%{stroke:var(--pillLit)}}
+    .pill{animation:pillGlow 4.5s ease-in-out infinite}
+
+    @keyframes runBorder{to{stroke-dashoffset:-2920}}
+    .runner{stroke-dasharray:200 2720;animation:runBorder 8s linear infinite}
+
+    @keyframes mote{0%{transform:translateY(0);opacity:0}16%{opacity:.6}84%{opacity:.35}100%{transform:translateY(-140px);opacity:0}}
+    .mote{animation:mote 13s linear infinite}
+
+    @media (prefers-reduced-motion: reduce){
+      .in,.arrow,.halo,.sheen,.pill,.runner,.mote{animation:none!important}
+      .runner,.mote{opacity:0}
+      .in{opacity:1}
+      .sheen{display:none}
+    }
+  </style>
+  <radialGradient id="wash2" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="var(--v)" stop-opacity="var(--washA)"/>
+    <stop offset="100%" stop-color="var(--v)" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="sheenGrad2" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity="var(--sheenA)"/>
+    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="runner2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="var(--v)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--v)" stop-opacity=".85"/>
+    <stop offset="100%" stop-color="var(--c)" stop-opacity="0"/>
+  </linearGradient>
+  <clipPath id="r2"><rect x=".75" y=".75" width="1278.5" height="178.5" rx="16"/></clipPath>
+  <clipPath id="titleClip">
+    <text class="f" x="640" y="100" text-anchor="middle" font-size="34" font-weight="600" letter-spacing="-.9">Have an interesting problem? Let's talk.</text>
+  </clipPath>
+</defs>
+
+<g clip-path="url(#r2)">
+  <rect width="1280" height="180" fill="var(--bg)"/>
+  <ellipse class="halo" cx="640" cy="200" rx="560" ry="170" fill="url(#wash2)"/>
+
+  <g fill="var(--c)">
+    <circle class="mote" cx="240" cy="176" r="1.4" opacity="0"/>
+    <circle class="mote" cx="1040" cy="180" r="1.6" opacity="0" style="animation-delay:-5s;animation-duration:16s"/>
+    <circle class="mote" cx="1188" cy="172" r="1.2" opacity="0" style="animation-delay:-10s;animation-duration:18s"/>
+  </g>
+
+  <text class="m in d1" x="640" y="56" text-anchor="middle" font-size="11.5" letter-spacing="2" fill="var(--label)">LET'S WORK TOGETHER</text>
+
+  <g class="in d2">
+    <text class="f" x="640" y="100" text-anchor="middle" font-size="34" font-weight="600" letter-spacing="-.9" fill="var(--nameA)">Have an interesting problem? Let's talk.</text>
+    <g clip-path="url(#titleClip)">
+      <rect class="sheen" x="530" y="70" width="130" height="42" fill="url(#sheenGrad2)"/>
+    </g>
+  </g>
+
+  <g transform="translate(472,124)"><g class="in d3">
+    <rect class="pill" x="0" y="0" width="336" height="34" rx="17" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <text class="m" x="160" y="22" text-anchor="middle" font-size="12.5" letter-spacing=".5" fill="var(--text)">aadycm05@gmail.com</text>
+    <g transform="translate(298,17)"><g class="arrow">
+      <path d="M0 0 H9 M5.5 -3.5 L9 0 L5.5 3.5" fill="none" stroke="var(--c)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g></g>
+  </g></g>
+</g>
+<rect x=".75" y=".75" width="1278.5" height="178.5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+<rect class="runner" x=".75" y=".75" width="1278.5" height="178.5" rx="16" fill="none" stroke="url(#runner2)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

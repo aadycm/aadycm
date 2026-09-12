@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 12" width="1280" height="12" role="img" aria-label="">
+  <defs>
+    <style>
+      @keyframes glide{0%{transform:translateX(-200px)}100%{transform:translateX(1320px)}}
+      @keyframes fade{0%,100%{opacity:0}15%,85%{opacity:.9}}
+      @keyframes glideBack{0%{transform:translateX(1320px)}100%{transform:translateX(-200px)}}
+      @keyframes fade2{0%,100%{opacity:0}20%,80%{opacity:.45}}
+      @keyframes nodePulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
+      .trav{animation:glide 11s cubic-bezier(.4,0,.6,1) infinite,fade 11s linear infinite}
+      .trav2{animation:glideBack 17s cubic-bezier(.4,0,.6,1) 5s infinite,fade2 17s linear 5s infinite}
+      .node{transform-box:fill-box;transform-origin:center;animation:nodePulse 5s ease-in-out infinite}
+      @media (prefers-reduced-motion:reduce){
+        .trav,.trav2,.node{animation:none}
+        .trav,.trav2{opacity:0}
+      }
+    </style>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity=".38"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="5.5" width="1280" height="1" fill="url(#d)"/>
+  <rect class="trav2" x="0" y="5" width="150" height="2" rx="1" fill="url(#t)"/>
+  <rect class="trav" x="0" y="5" width="200" height="2" rx="1" fill="url(#t)"/>
+  <circle class="node" cx="640" cy="6" r="2" fill="#8B5CF6"/>
+</svg>
