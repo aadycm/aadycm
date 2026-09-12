@@ -8,6 +8,7 @@
   --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
 }
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:'SF Mono','JetBrains Mono','Fira Code',ui-monospace,Menlo,Consolas,monospace}
@@ -174,7 +175,7 @@
     <text class="m" x="62" y="12" font-size="12" letter-spacing=".8" fill="var(--sep)">/</text>
     <text class="m" x="80" y="12" font-size="12" letter-spacing=".8" fill="var(--dim)">PENN STATE · COMPUTER SCIENCE</text>
     <text class="m" x="386" y="12" font-size="12" letter-spacing=".8" fill="var(--sep)">/</text>
-    <text class="m" x="404" y="12" font-size="12" letter-spacing=".8" fill="var(--dim)">GITHUB.COM/AADYCM</text>
+    <text class="m" x="404" y="12" font-size="12" letter-spacing=".8" fill="var(--dim)">AADYCM05@GMAIL.COM</text>
   </g></g>
 </g>
 <rect x=".75" y=".75" width="1278.5" height="298.5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>

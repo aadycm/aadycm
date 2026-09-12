@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="HydroNode architecture: two growing nodes push live readings to Firebase and a five-minute history to Google Sheets, both feeding one dashboard.">
+<defs>
+  <style>
+    __VARS__
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    .box{fill:var(--panel);stroke:var(--border);stroke-width:1.5}
+    .wire{fill:none;stroke:var(--wire);stroke-width:1.5}
+
+    @keyframes pktA{0%{transform:translate(0,0);opacity:0}6%{opacity:1}38%{transform:translate(72px,0)}
+      84%{transform:translate(72px,-87px)}94%{opacity:1}100%{transform:translate(102px,-87px);opacity:0}}
+    @keyframes pktB{0%{transform:translate(0,0);opacity:0}6%{opacity:1}28%{transform:translate(60px,0)}
+      82%{transform:translate(60px,117px)}94%{opacity:1}100%{transform:translate(100px,117px);opacity:0}}
+    @keyframes pktC{0%{transform:translate(0,0);opacity:0}6%{opacity:1}41%{transform:translate(72px,0)}
+      83%{transform:translate(72px,75px)}94%{opacity:1}100%{transform:translate(102px,75px);opacity:0}}
+    @keyframes pktD{0%{transform:translate(0,0);opacity:0}6%{opacity:1}29%{transform:translate(60px,0)}
+      80%{transform:translate(60px,-105px)}94%{opacity:1}100%{transform:translate(100px,-105px);opacity:0}}
+
+    .pA{animation:pktA 2.4s linear infinite}
+    .pB{animation:pktB 2.4s linear .5s infinite}
+    .pC{animation:pktC 8s linear 1s infinite}
+    .pD{animation:pktD 8s linear 1.6s infinite}
+
+    @keyframes ping{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(3);opacity:0}}
+    .ping{transform-box:fill-box;transform-origin:center;animation:ping 2.4s cubic-bezier(.2,.6,.3,1) infinite}
+    @keyframes beat{0%,100%{opacity:1}50%{opacity:.55}}
+    .beat{animation:beat 2.4s ease-in-out infinite}
+
+    @keyframes hotGlow{0%,100%{stroke:var(--border)}22%,38%{stroke:var(--c)}}
+    .hot{animation:hotGlow 2.4s ease-in-out infinite}
+    @keyframes coldGlow{0%,100%{stroke:var(--border)}26%,40%{stroke:var(--v)}}
+    .cold{animation:coldGlow 8s ease-in-out 1s infinite}
+
+    @keyframes bars{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+    .bar{transform-box:fill-box;transform-origin:bottom;animation:bars 4s ease-in-out infinite}
+
+    @media (prefers-reduced-motion:reduce){
+      .pA,.pB,.pC,.pD,.ping,.beat,.hot,.cold,.bar{animation:none!important}
+      .pA,.pB,.pC,.pD,.ping{opacity:0}
+      .bar{transform:none}
+    }
+  </style>
+</defs>
+
+<rect width="800" height="520" rx="14" fill="var(--bg)"/>
+<rect x=".75" y=".75" width="798.5" height="518.5" rx="14" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+
+<text class="m" x="40" y="46" font-size="12" letter-spacing="1.8" fill="var(--label)">HYDRONODE.IN</text>
+<text class="f" x="40" y="76" font-size="17" font-weight="600" fill="var(--nameA)">Two-path architecture</text>
+
+<!-- wires -->
+<path class="wire" d="M228 230 H300 V143 H330"/>
+<path class="wire" d="M228 290 H300 V365 H330"/>
+<path class="wire" d="M520 143 H580 V260 H620"/>
+<path class="wire" d="M520 365 H580 V260 H620"/>
+
+<!-- devices -->
+<rect class="box" x="48" y="180" width="180" height="160" rx="12"/>
+<text class="m" x="68" y="208" font-size="10.5" letter-spacing="1.5" fill="var(--label)">NODES</text>
+<g>
+  <circle class="ping" cx="74" cy="240" r="3.5" fill="var(--live)"/>
+  <circle class="beat" cx="74" cy="240" r="3.5" fill="var(--live)"/>
+  <text class="f" x="90" y="244" font-size="13" font-weight="500" fill="var(--text)">NFT hydroponics</text>
+  <text class="m" x="90" y="260" font-size="10" fill="var(--muted)">Nano ESP32</text>
+</g>
+<g>
+  <circle class="ping" cx="74" cy="296" r="3.5" fill="var(--live)" style="animation-delay:1.2s"/>
+  <circle class="beat" cx="74" cy="296" r="3.5" fill="var(--live)" style="animation-delay:1.2s"/>
+  <text class="f" x="90" y="300" font-size="13" font-weight="500" fill="var(--text)">Drip terrace</text>
+  <text class="m" x="90" y="316" font-size="10" fill="var(--muted)">Uno R4 WiFi</text>
+</g>
+
+<!-- hot path -->
+<rect class="box hot" x="330" y="104" width="190" height="78" rx="12"/>
+<text class="m" x="350" y="130" font-size="10.5" letter-spacing="1.5" fill="var(--c)">HOT PATH</text>
+<text class="f" x="350" y="152" font-size="13" font-weight="500" fill="var(--text)">Firebase RTDB</text>
+<text class="m" x="350" y="169" font-size="10" fill="var(--muted)">live stream · onValue</text>
+
+<!-- cold path -->
+<rect class="box cold" x="330" y="326" width="190" height="78" rx="12"/>
+<text class="m" x="350" y="352" font-size="10.5" letter-spacing="1.5" fill="var(--v)">COLD PATH</text>
+<text class="f" x="350" y="374" font-size="13" font-weight="500" fill="var(--text)">Apps Script → Sheets</text>
+<text class="m" x="350" y="391" font-size="10" fill="var(--muted)">30-day rolling history</text>
+
+<!-- dashboard -->
+<rect class="box" x="620" y="196" width="138" height="128" rx="12"/>
+<text class="m" x="638" y="222" font-size="10.5" letter-spacing="1.5" fill="var(--label)">DASHBOARD</text>
+<g transform="translate(638,238)">
+  <rect class="bar" x="0"  y="0" width="12" height="46" rx="3" fill="var(--c)" opacity=".75"/>
+  <rect class="bar" x="20" y="0" width="12" height="46" rx="3" fill="var(--c)" opacity=".6" style="animation-delay:-.7s"/>
+  <rect class="bar" x="40" y="0" width="12" height="46" rx="3" fill="var(--v)" opacity=".7" style="animation-delay:-1.4s"/>
+  <rect class="bar" x="60" y="0" width="12" height="46" rx="3" fill="var(--v)" opacity=".55" style="animation-delay:-2.1s"/>
+  <rect class="bar" x="80" y="0" width="12" height="46" rx="3" fill="var(--c)" opacity=".65" style="animation-delay:-2.8s"/>
+</g>
+<text class="m" x="638" y="308" font-size="10" fill="var(--muted)">live + 30d history</text>
+
+<!-- packets -->
+<g fill="var(--c)"><circle class="pA" cx="228" cy="230" r="3.5"/></g>
+<g fill="var(--c)"><circle class="pB" cx="520" cy="143" r="3.5"/></g>
+<g fill="var(--v)"><circle class="pC" cx="228" cy="290" r="3.5"/></g>
+<g fill="var(--v)"><circle class="pD" cx="520" cy="365" r="3.5"/></g>
+
+<!-- footnote -->
+<text class="m" x="40" y="470" font-size="10.5" fill="var(--muted)">Watering logic runs on the board — the network is for reporting, never for deciding.</text>
+<text class="m" x="40" y="490" font-size="10.5" fill="var(--muted)">WiFi drops: rows spool on-device and replay later with their real timestamps.</text>
+</svg>

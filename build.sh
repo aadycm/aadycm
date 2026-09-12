@@ -24,6 +24,7 @@ DARK=':root{
   --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
 }'
 
 LIGHT=':root{
@@ -33,6 +34,7 @@ LIGHT=':root{
   --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
   --gridC:#0D1117; --gridA:.04;
   --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
+  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4;
 }'
 
 theme() { # theme <src> <out> <vars>
@@ -147,6 +149,15 @@ rm -f .typecss.tmp .typesvg.tmp
 theme src/cta.svg assets/cta.svg       "$DARK"
 theme src/cta.svg assets/cta-light.svg "$LIGHT"
 
+# ─────────────────────────────────────────────  project cards
+# One bespoke animated diagram per project: src/card-<name>.svg
+
+for card in src/card-*.svg; do
+  name=$(basename "$card" .svg | sed 's/^card-//')
+  theme "$card" "assets/projects/$name.svg"       "$DARK"
+  theme "$card" "assets/projects/$name-light.svg" "$LIGHT"
+done
+
 # ─────────────────────────────────────────────  divider
 
 cat > assets/divider.svg <<'EOF'
@@ -200,7 +211,6 @@ cat > assets/projects/placeholder.svg <<'EOF'
 </svg>
 EOF
 
-for p in one two three four; do cp assets/projects/placeholder.svg "assets/projects/project-$p.svg"; done
 
 # ─────────────────────────────────────────────  tech stack
 # STACK — edit these six lines. Underscores become spaces.

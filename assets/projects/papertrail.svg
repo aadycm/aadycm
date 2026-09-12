@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="Paper Trail: papers become a graph of claims and citations, showing which results depend on which.">
+<defs>
+  <style>
+:root{
+  --bg:#0D1117; --border:#30363D;
+  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
+  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
+  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
+  --gridC:#FFFFFF; --gridA:.022;
+  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
+}
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    .box{fill:var(--panel);stroke:var(--border);stroke-width:1.5}
+
+    /* edges draw themselves in dependency order, then hold */
+    @keyframes draw{0%{stroke-dashoffset:var(--len)}18%{stroke-dashoffset:0}86%{stroke-dashoffset:0}
+      100%{stroke-dashoffset:var(--len)}}
+    .edge{fill:none;stroke:var(--wire);stroke-width:1.5;
+      stroke-dasharray:var(--len);animation:draw 12s ease-in-out infinite}
+
+    /* nodes land as their edges arrive */
+    @keyframes land{0%{opacity:.25;transform:scale(.8)}14%,88%{opacity:1;transform:scale(1)}100%{opacity:.25;transform:scale(.8)}}
+    .node{transform-box:fill-box;transform-origin:center;animation:land 12s ease-in-out infinite}
+
+    /* the load-bearing result keeps pulsing */
+    @keyframes key{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.22)}}
+    .keyRing{transform-box:fill-box;transform-origin:center;animation:key 3.2s ease-in-out infinite}
+
+    @keyframes scanRow{0%,100%{opacity:.35}50%{opacity:1}}
+    .row{animation:scanRow 4s ease-in-out infinite}
+
+    @media (prefers-reduced-motion:reduce){
+      .edge,.node,.keyRing,.row{animation:none!important}
+      .edge{stroke-dashoffset:0}
+      .node{opacity:1;transform:none}
+      .keyRing{opacity:.45}
+    }
+  </style>
+</defs>
+
+<rect width="800" height="520" rx="14" fill="var(--bg)"/>
+<rect x=".75" y=".75" width="798.5" height="518.5" rx="14" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+
+<text class="m" x="40" y="46" font-size="12" letter-spacing="1.8" fill="var(--label)">PAPER TRAIL</text>
+<text class="f" x="40" y="76" font-size="17" font-weight="600" fill="var(--nameA)">What actually depends on what</text>
+
+<!-- reading list -->
+<text class="m" x="40" y="122" font-size="10.5" letter-spacing="1.5" fill="var(--label)">READING LIST</text>
+<rect class="box" x="40" y="136" width="190" height="248" rx="12"/>
+<g>
+  <rect class="row" x="60" y="162" width="132" height="8" rx="4" fill="var(--wire)"/>
+  <rect class="row" x="60" y="186" width="108" height="8" rx="4" fill="var(--wire)" style="animation-delay:-.5s"/>
+  <rect class="row" x="60" y="210" width="144" height="8" rx="4" fill="var(--wire)" style="animation-delay:-1s"/>
+  <rect class="row" x="60" y="234" width="96"  height="8" rx="4" fill="var(--wire)" style="animation-delay:-1.5s"/>
+  <rect class="row" x="60" y="258" width="126" height="8" rx="4" fill="var(--wire)" style="animation-delay:-2s"/>
+  <rect class="row" x="60" y="282" width="112" height="8" rx="4" fill="var(--wire)" style="animation-delay:-2.5s"/>
+  <rect class="row" x="60" y="306" width="140" height="8" rx="4" fill="var(--wire)" style="animation-delay:-3s"/>
+  <rect class="row" x="60" y="330" width="88"  height="8" rx="4" fill="var(--wire)" style="animation-delay:-3.5s"/>
+</g>
+<text class="m" x="60" y="364" font-size="10" fill="var(--muted)">50 papers, no structure</text>
+
+<!-- arrow across -->
+<path d="M246 260 H292 M284 254 L292 260 L284 266" fill="none" stroke="var(--wire)" stroke-width="1.5"
+      stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- graph -->
+<text class="m" x="316" y="122" font-size="10.5" letter-spacing="1.5" fill="var(--label)">CLAIM GRAPH</text>
+<rect class="box" x="316" y="136" width="444" height="248" rx="12"/>
+
+<!-- edges: the len custom property is roughly each path length -->
+<g>
+  <path class="edge" style="--len:118;animation-delay:0s"    d="M380 300 L470 246"/>
+  <path class="edge" style="--len:104;animation-delay:.5s"   d="M380 300 L456 340"/>
+  <path class="edge" style="--len:112;animation-delay:1s"    d="M470 246 L568 212"/>
+  <path class="edge" style="--len:122;animation-delay:1.4s"  d="M470 246 L560 296"/>
+  <path class="edge" style="--len:108;animation-delay:1.8s"  d="M456 340 L560 296"/>
+  <path class="edge" style="--len:126;animation-delay:2.3s"  d="M456 340 L572 352"/>
+  <path class="edge" style="--len:104;animation-delay:2.7s"  d="M568 212 L668 238"/>
+  <path class="edge" style="--len:96;animation-delay:3.1s"   d="M560 296 L668 238"/>
+  <path class="edge" style="--len:118;animation-delay:3.5s"  d="M572 352 L672 318"/>
+  <path class="edge" style="--len:92;animation-delay:3.9s"   d="M560 296 L672 318"/>
+</g>
+
+<g fill="var(--v)">
+  <circle class="node" cx="380" cy="300" r="7" style="animation-delay:0s"/>
+  <circle class="node" cx="470" cy="246" r="6" style="animation-delay:.4s"/>
+  <circle class="node" cx="456" cy="340" r="6" style="animation-delay:.7s"/>
+  <circle class="node" cx="568" cy="212" r="5.5" style="animation-delay:1.2s"/>
+  <circle class="node" cx="572" cy="352" r="5.5" style="animation-delay:2.1s"/>
+  <circle class="node" cx="672" cy="318" r="5" style="animation-delay:3.3s"/>
+</g>
+
+<!-- the load-bearing node -->
+<circle class="keyRing" cx="560" cy="296" r="14" fill="none" stroke="var(--c)" stroke-width="1.5"/>
+<circle class="node" cx="560" cy="296" r="8" fill="var(--c)" style="animation-delay:1.6s"/>
+<circle class="node" cx="668" cy="238" r="5" fill="var(--v)" style="animation-delay:2.9s"/>
+<text class="m" x="536" y="336" font-size="9.5" letter-spacing="1" fill="var(--c)">LOAD-BEARING</text>
+
+<text class="m" x="40" y="440" font-size="10.5" fill="var(--muted)">Fifty papers leave you with fifty summaries and no structure.</text>
+<text class="m" x="40" y="460" font-size="10.5" fill="var(--muted)">Extract each paper's claims and citations, then graph which results rest on which —</text>
+<text class="m" x="40" y="478" font-size="10.5" fill="var(--muted)">so a line of work shows you where it actually holds up.</text>
+<text class="m" x="40" y="500" font-size="10.5" letter-spacing="1.2" fill="var(--label)">IN PROGRESS</text>
+</svg>

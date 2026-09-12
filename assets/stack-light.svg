@@ -8,6 +8,7 @@
   --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
   --gridC:#0D1117; --gridA:.04;
   --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
+  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4;
 }
       .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
       .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="Semantic Notes: a question is embedded, matched against note vectors on the device, and answered locally.">
+<defs>
+  <style>
+:root{
+  --bg:#0D1117; --border:#30363D;
+  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
+  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
+  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
+  --gridC:#FFFFFF; --gridA:.022;
+  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250;
+}
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    .box{fill:var(--panel);stroke:var(--border);stroke-width:1.5}
+
+    /* the query sweeps through the vector field */
+    @keyframes sweep{0%{transform:translateX(0);opacity:0}8%{opacity:1}
+      70%{transform:translateX(300px);opacity:1}84%{opacity:0}100%{transform:translateX(300px);opacity:0}}
+    .sweep{animation:sweep 6s cubic-bezier(.4,0,.4,1) infinite}
+
+    /* dots light up as it passes */
+    @keyframes lit{0%,100%{fill:var(--dotOff);r:3}
+      6%{fill:var(--c);r:4.5}14%{fill:var(--dotOff);r:3}}
+    .dot{animation:lit 6s linear infinite}
+    /* the three matches stay lit */
+    @keyframes match{0%,44%{fill:var(--dotOff);r:3}52%,88%{fill:var(--v);r:5.5}100%{fill:var(--dotOff);r:3}}
+    .hit{animation:match 6s linear infinite}
+
+    @keyframes caret{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .caret{animation:caret 1.05s steps(1,end) infinite}
+
+    @keyframes answer{0%,52%{opacity:0;transform:translateY(4px)}62%,90%{opacity:1;transform:translateY(0)}100%{opacity:0}}
+    .answer{animation:answer 6s ease-in-out infinite}
+
+    @keyframes lockPulse{0%,100%{opacity:.5}50%{opacity:1}}
+    .lock{animation:lockPulse 5s ease-in-out infinite}
+
+    @media (prefers-reduced-motion:reduce){
+      .sweep,.dot,.hit,.caret,.answer,.lock{animation:none!important}
+      .sweep,.caret{opacity:0}
+      .answer{opacity:1;transform:none}
+    }
+  </style>
+</defs>
+
+<rect width="800" height="520" rx="14" fill="var(--bg)"/>
+<rect x=".75" y=".75" width="798.5" height="518.5" rx="14" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+
+<text class="m" x="40" y="46" font-size="12" letter-spacing="1.8" fill="var(--label)">SEMANTIC NOTES</text>
+<text class="f" x="40" y="76" font-size="17" font-weight="600" fill="var(--nameA)">Ask your own notes</text>
+
+<!-- query bar -->
+<rect class="box" x="40" y="110" width="500" height="46" rx="10"/>
+<text class="m" x="60" y="139" font-size="13" fill="var(--text)">where did I write about batch norm?</text>
+<rect class="caret" x="342" y="126" width="1.6" height="16" fill="var(--c)"/>
+
+<!-- device lock -->
+<g class="lock" transform="translate(576,112)">
+  <rect x="0" y="0" width="184" height="42" rx="21" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+  <path d="M16 22 v-5 a5 5 0 0 1 10 0 v5" fill="none" stroke="var(--v)" stroke-width="1.6" stroke-linecap="round"/>
+  <rect x="13" y="21" width="16" height="12" rx="2.5" fill="none" stroke="var(--v)" stroke-width="1.6"/>
+  <text class="m" x="42" y="27" font-size="10.5" letter-spacing="1.2" fill="var(--muted)">STAYS ON DEVICE</text>
+</g>
+
+<!-- vector field -->
+<text class="m" x="40" y="200" font-size="10.5" letter-spacing="1.5" fill="var(--label)">NOTE EMBEDDINGS</text>
+<rect class="box" x="40" y="214" width="500" height="186" rx="12"/>
+
+<g>
+  <circle class="dot" cx="76"  cy="252" r="3" fill="var(--dotOff)" style="animation-delay:0s"/>
+  <circle class="dot" cx="124" cy="286" r="3" fill="var(--dotOff)" style="animation-delay:.24s"/>
+  <circle class="dot" cx="118" cy="344" r="3" fill="var(--dotOff)" style="animation-delay:.22s"/>
+  <circle class="dot" cx="170" cy="240" r="3" fill="var(--dotOff)" style="animation-delay:.5s"/>
+  <circle class="hit"  cx="196" cy="300" r="3" fill="var(--dotOff)"/>
+  <circle class="dot" cx="212" cy="366" r="3" fill="var(--dotOff)" style="animation-delay:.7s"/>
+  <circle class="dot" cx="254" cy="264" r="3" fill="var(--dotOff)" style="animation-delay:.9s"/>
+  <circle class="hit"  cx="272" cy="318" r="3" fill="var(--dotOff)" style="animation-delay:.1s"/>
+  <circle class="dot" cx="300" cy="238" r="3" fill="var(--dotOff)" style="animation-delay:1.1s"/>
+  <circle class="dot" cx="318" cy="378" r="3" fill="var(--dotOff)" style="animation-delay:1.2s"/>
+  <circle class="dot" cx="352" cy="286" r="3" fill="var(--dotOff)" style="animation-delay:1.4s"/>
+  <circle class="hit"  cx="366" cy="340" r="3" fill="var(--dotOff)" style="animation-delay:.2s"/>
+  <circle class="dot" cx="402" cy="248" r="3" fill="var(--dotOff)" style="animation-delay:1.7s"/>
+  <circle class="dot" cx="424" cy="312" r="3" fill="var(--dotOff)" style="animation-delay:1.85s"/>
+  <circle class="dot" cx="448" cy="372" r="3" fill="var(--dotOff)" style="animation-delay:2s"/>
+  <circle class="dot" cx="486" cy="270" r="3" fill="var(--dotOff)" style="animation-delay:2.2s"/>
+  <circle class="dot" cx="502" cy="336" r="3" fill="var(--dotOff)" style="animation-delay:2.35s"/>
+</g>
+
+<!-- query sweep line -->
+<g class="sweep">
+  <rect x="150" y="220" width="1.5" height="174" fill="var(--c)" opacity=".8"/>
+  <circle cx="150" cy="220" r="2.5" fill="var(--c)"/>
+</g>
+
+<!-- answer -->
+<g class="answer">
+  <rect class="box" x="576" y="214" width="184" height="186" rx="12"/>
+  <text class="m" x="596" y="244" font-size="10.5" letter-spacing="1.5" fill="var(--v)">3 MATCHES</text>
+  <rect x="596" y="262" width="144" height="7" rx="3.5" fill="var(--wire)"/>
+  <rect x="596" y="280" width="118" height="7" rx="3.5" fill="var(--wire)"/>
+  <rect x="596" y="298" width="134" height="7" rx="3.5" fill="var(--wire)"/>
+  <rect x="596" y="324" width="60" height="7" rx="3.5" fill="var(--v)" opacity=".55"/>
+  <text class="m" x="596" y="370" font-size="10" fill="var(--muted)">answered locally</text>
+</g>
+
+<text class="m" x="40" y="452" font-size="10.5" fill="var(--muted)">Search fails when you can't remember the words you used.</text>
+<text class="m" x="40" y="472" font-size="10.5" fill="var(--muted)">Embeddings and index live on the machine — no cloud round-trip.</text>
+<text class="m" x="40" y="494" font-size="10.5" letter-spacing="1.2" fill="var(--label)">IN PROGRESS</text>
+</svg>
