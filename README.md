@@ -140,11 +140,31 @@ the one finding everything else is leaning on.
 
 ## Activity
 
+<div align="center">
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/focus.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/focus-light.svg">
-  <img src="assets/focus.svg" alt="Where the work goes: embedded firmware, machine learning, backend and data, frontend, infrastructure — with a recent activity trace." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=0D1117&stroke=30363D&ring=8B5CF6&fire=22D3EE&currStreakNum=F4F5F8&sideNums=F4F5F8&currStreakLabel=A8AEBB&sideLabels=A8AEBB&dates=8F96A4&excludeDaysLabel=8F96A4">
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=FFFFFF&stroke=D1D9E0&ring=7C3AED&fire=0E7490&currStreakNum=0D0E11&sideNums=0D0E11&currStreakLabel=565C68&sideLabels=565C68&dates=666C79&excludeDaysLabel=666C79">
+  <img alt="Total contributions, current streak and longest streak" width="88%"
+    src="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=0D1117&stroke=30363D&ring=8B5CF6&fire=22D3EE&currStreakNum=F4F5F8&sideNums=F4F5F8&currStreakLabel=A8AEBB&sideLabels=A8AEBB&dates=8F96A4&excludeDaysLabel=8F96A4">
 </picture>
+
+<br><br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=github_dark">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=default">
+  <img height="200" alt="Commits, pull requests, issues and contributions"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=github_dark">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=github_dark&utcOffset=5.5">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=default&utcOffset=5.5">
+  <img height="200" alt="When during the day the commits happen"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=github_dark&utcOffset=5.5">
+</picture>
+
+</div>
 
 ## How I Work
 

@@ -75,7 +75,7 @@ Speed lives just above them: `TYPE_MS`, `HOLD_MS`, `DEL_MS`, `PAUSE_MS`.
 
 ## What animates
 
-Twenty-eight effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
+Twenty-four effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
 
 | Asset | Motion | Cycle |
 |---|---|---|
@@ -118,7 +118,7 @@ Everything also honours `prefers-reduced-motion: reduce`.
 
 ## The stats cards
 
-The Activity section uses `github-readme-stats.vercel.app`. It's the standard choice, themed here to match, but it's community-run and rate-limits under load. Three options:
+The Activity section uses `streak-stats.demolab.com` and `github-profile-summary-cards.vercel.app`. Both were verified returning HTTP 200 for this account and themed to the palette. `github-readme-stats` and `github-readme-activity-graph` were dropped: they return 503 and 402, which is why the section used to render as plain links.
 
 1. **Keep it.** Fine for most people. If it's briefly down, the image shows alt text.
 2. **Self-host** — fork `anuraghazra/github-readme-stats`, deploy to your own Vercel, swap the hostname in both URLs.

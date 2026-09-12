@@ -158,12 +158,14 @@ theme src/cta.svg assets/cta-light.svg "$LIGHT"
 # One bespoke animated diagram per project: src/card-<name>.svg
 
 for card in src/card-*.svg; do
+  [ -e "$card" ] || continue
   name=$(basename "$card" .svg | sed 's/^card-//')
   theme "$card" "assets/projects/$name.svg"       "$DARK"
   theme "$card" "assets/projects/$name-light.svg" "$LIGHT"
 done
 
 for panel in src/panel-*.svg; do
+  [ -e "$panel" ] || continue
   name=$(basename "$panel" .svg | sed 's/^panel-//')
   theme "$panel" "assets/$name.svg"       "$DARK"
   theme "$panel" "assets/$name-light.svg" "$LIGHT"
