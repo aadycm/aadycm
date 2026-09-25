@@ -11,30 +11,20 @@
     .d2{animation-delay:.07s}.d3{animation-delay:.15s}
     .d4{animation-delay:.26s}.d5{animation-delay:.34s}
 
-    /* drifting grid */
-    @keyframes pan{from{transform:translate(0,0)}to{transform:translate(40px,40px)}}
-    .grid{animation:pan 30s linear infinite}
+__NET_CSS__
+__ORB_CSS__
 
     /* ambient washes */
     @keyframes drift{0%,100%{opacity:.7;transform:translate(0,0)}50%{opacity:1;transform:translate(-30px,16px)}}
     .wash{animation:drift 16s ease-in-out infinite}
 
-    /* light flowing through the letters of the name */
-    @keyframes flow{from{transform:translateX(0)}to{transform:translateX(560px)}}
-    .flow{animation:flow 7s linear infinite}
 
-    /* white highlight sweeping across the name */
-    @keyframes sheen{0%{transform:translateX(-280px)}38%,100%{transform:translateX(760px)}}
-    .sheen{animation:sheen 11s cubic-bezier(.45,0,.3,1) 2s infinite}
 
     /* accent rule under the name */
     @keyframes ruleGrow{0%,100%{transform:scaleX(1);opacity:.7}50%{transform:scaleX(1.55);opacity:1}}
     .accentRule{transform-box:fill-box;transform-origin:left center;
       animation:ruleGrow 7s cubic-bezier(.4,0,.3,1) infinite}
 
-    /* rising motes */
-    @keyframes mote{0%{transform:translateY(0);opacity:0}14%{opacity:.65}86%{opacity:.4}100%{transform:translateY(-200px);opacity:0}}
-    .mote{animation:mote 15s linear infinite}
 
     /* light running the border */
     @keyframes runBorder{to{stroke-dashoffset:-3160}}
@@ -47,8 +37,8 @@
 __TYPE_CSS__
 
     @media (prefers-reduced-motion: reduce){
-      .in,.grid,.wash,.flow,.sheen,.accentRule,.mote,.runner,.blink,.t,.cw{animation:none!important}
-      .cw,.mote,.runner{opacity:0}
+      .in,.wash,.accentRule,.runner,.blink,.t,.cw{animation:none!important}
+      .cw,.runner{opacity:0}
       .accentRule{transform:none}
       .t{transform:none!important}
       .tHide{display:none}
@@ -60,28 +50,7 @@ __TYPE_CSS__
     <stop offset="100%" stop-color="var(--c)"/>
   </linearGradient>
 
-  <!-- one accent band per 560px, repeated three times so the translate loops seamlessly -->
-  <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0.000" stop-color="var(--nameA)"/>
-    <stop offset="0.180" stop-color="var(--nameA)"/>
-    <stop offset="0.240" stop-color="var(--v)"/>
-    <stop offset="0.290" stop-color="var(--c)"/>
-    <stop offset="0.333" stop-color="var(--nameA)"/>
-    <stop offset="0.513" stop-color="var(--nameA)"/>
-    <stop offset="0.573" stop-color="var(--v)"/>
-    <stop offset="0.623" stop-color="var(--c)"/>
-    <stop offset="0.666" stop-color="var(--nameA)"/>
-    <stop offset="0.846" stop-color="var(--nameA)"/>
-    <stop offset="0.906" stop-color="var(--v)"/>
-    <stop offset="0.956" stop-color="var(--c)"/>
-    <stop offset="1.000" stop-color="var(--nameA)"/>
-  </linearGradient>
 
-  <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
-    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity="var(--sheenA)"/>
-    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
-  </linearGradient>
   <linearGradient id="runnerGrad" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0%" stop-color="var(--c)" stop-opacity="0"/>
     <stop offset="50%" stop-color="var(--c)" stop-opacity=".9"/>
@@ -96,37 +65,21 @@ __TYPE_CSS__
     <stop offset="100%" stop-color="var(--c)" stop-opacity="0"/>
   </radialGradient>
 
-  <pattern id="gridP" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M40 0H0V40" fill="none" stroke="var(--gridC)" stroke-opacity="var(--gridA)" stroke-width="1"/>
-  </pattern>
 
   <clipPath id="round"><rect x=".75" y=".75" width="1278.5" height="298.5" rx="16"/></clipPath>
-  <clipPath id="nameClip">
-    <text class="f" x="72" y="128" font-size="60" font-weight="600" letter-spacing="-1.8">Aadithya Chandramouli</text>
-  </clipPath>
 </defs>
 
 <g clip-path="url(#round)">
   <rect width="1280" height="300" fill="var(--bg)"/>
-  <g class="grid"><rect x="-40" y="-40" width="1360" height="380" fill="url(#gridP)"/></g>
+  __NET_SVG__
 
   <ellipse class="wash" cx="1120" cy="30" rx="460" ry="250" fill="url(#wash)"/>
   <ellipse class="wash" cx="980" cy="310" rx="380" ry="190" fill="url(#wash2)" style="animation-delay:-8s"/>
 
-  <g fill="var(--c)">
-    <circle class="mote" cx="392" cy="284" r="1.6" opacity="0"/>
-    <circle class="mote" cx="668" cy="298" r="1.2" opacity="0" style="animation-delay:-4s;animation-duration:19s"/>
-    <circle class="mote" cx="842" cy="276" r="1.8" opacity="0" style="animation-delay:-9s;animation-duration:17s"/>
-    <circle class="mote" cx="1044" cy="306" r="1.3" opacity="0" style="animation-delay:-13s;animation-duration:21s"/>
-    <circle class="mote" cx="1188" cy="288" r="1.5" opacity="0" style="animation-delay:-6s;animation-duration:16s"/>
-  </g>
+  __ORB_SVG__
 
   <g class="in d2">
     <text class="f" x="72" y="128" font-size="60" font-weight="600" letter-spacing="-1.8" fill="var(--nameA)">Aadithya Chandramouli</text>
-    <g clip-path="url(#nameClip)">
-      <rect class="flow" x="-488" y="68" width="1680" height="76" fill="url(#flowGrad)"/>
-      <rect class="sheen" x="0" y="68" width="140" height="76" fill="url(#sheenGrad)"/>
-    </g>
   </g>
 
   <rect class="in d3 accentRule" x="72" y="152" width="72" height="2" rx="1" fill="url(#rule)"/>

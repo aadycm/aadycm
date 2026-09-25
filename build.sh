@@ -25,6 +25,8 @@ DARK=':root{
   --gridC:#FFFFFF; --gridA:.022;
   --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
   --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
+  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
+  --orbInk:#E7EAF0;
 }'
 
 LIGHT=':root{
@@ -35,10 +37,175 @@ LIGHT=':root{
   --gridC:#0D1117; --gridA:.04;
   --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
   --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4; --paper:#9AA2B0; --track:#EDEFF3;
+  --netLine:#CBD2DC; --netDot:#98A1B0; --netSig:#0E7490;
+  --orbInk:#12141A;
 }'
 
 theme() { # theme <src> <out> <vars>
   awk -v vars="$3" '{ if ($0 ~ /__VARS__/) print vars; else print }' "$1" > "$2"
+}
+
+# render <src> <out> <vars> — like theme(), but any __TOKEN__ line is replaced
+# by the contents of .frag.TOKEN when that fragment exists (see gen_net, gen_orb).
+render() {
+  awk -v vars="$3" '
+    /__VARS__/ { print vars; next }
+    /^[ \t]*__[A-Z_]+__[ \t]*$/ {
+      name=$0; sub(/^[ \t]*__/,"",name); sub(/__[ \t]*$/,"",name)
+      f=".frag." name; any=0
+      while ((getline l < f) > 0) { print l; any=1 }
+      close(f)
+      if (any) next
+    }
+    { print }
+  ' "$1" > "$2"
+}
+
+# ─────────────────────────────────────────────  particle network
+# Nodes scattered in a region, edges between any pair closer than MAXD, and a
+# few signals that travel an edge end to end. Positions come from a seeded RNG
+# so the layout is identical on every build.
+
+gen_net() { # gen_net <x0> <y0> <x1> <y1> <count> <seed> <maxd> <signals> <opacity>
+  awk -v X0="$1" -v Y0="$2" -v X1="$3" -v Y1="$4" -v N="$5" -v SEED="$6" \
+      -v MAXD="$7" -v SIG="$8" -v OP="$9" 'BEGIN{
+    srand(SEED)
+    # Jittered grid, not pure random: a uniform random scatter clumps in places
+    # and leaves holes elsewhere, which reads as noise rather than a network.
+    W = X1-X0; H = Y1-Y0
+    cols = int(sqrt(N*W/H) + 0.5); if(cols<1) cols=1
+    rows = int(N/cols + 0.999); if(rows<1) rows=1
+    cw = W/cols; ch = H/rows
+    k=0
+    for(rr=0; rr<rows; rr++) for(cc=0; cc<cols && k<N; cc++){
+      x[k] = X0 + cc*cw + cw*(0.20+rand()*0.60)
+      y[k] = Y0 + rr*ch + ch*(0.20+rand()*0.60)
+      r[k] = 1.2+rand()*1.4; nd[k] = rand()*9; k++ }
+    N = k
+    # edges follow the grid pitch, so every node keeps a couple of neighbours
+    if (MAXD+0 == 0) MAXD = (cw>ch?cw:ch)*1.45
+    ne=0
+    for(i=0;i<N;i++) for(j=i+1;j<N;j++){
+      dx=x[i]-x[j]; dy=y[i]-y[j]; d=sqrt(dx*dx+dy*dy)
+      if(d<MAXD){ ei[ne]=i; ej[ne]=j; ne++ } }
+
+    SVG=".frag.NET_SVG"; CSS=".frag.NET_CSS"
+    printf "" > SVG; printf "" > CSS
+
+    print "  <g class=\"net\" opacity=\"" OP "\">" > SVG
+    for(e=0;e<ne;e++)
+      printf "    <line class=\"edge\" style=\"animation-delay:%.2fs\" x1=\"%.1f\" y1=\"%.1f\" x2=\"%.1f\" y2=\"%.1f\"/>\n",
+             (e%11)*0.8, x[ei[e]],y[ei[e]],x[ej[e]],y[ej[e]] > SVG
+    for(i=0;i<N;i++)
+      printf "    <circle class=\"nd\" style=\"animation-delay:%.2fs\" cx=\"%.1f\" cy=\"%.1f\" r=\"%.2f\"/>\n",
+             nd[i], x[i],y[i],r[i] > SVG
+
+    print "    @keyframes edgeLive{0%,100%{opacity:.35}50%{opacity:1}}" > CSS
+    print "    @keyframes ndLive{0%,100%{opacity:.45;r:var(--nr)}50%{opacity:1}}" > CSS
+    print "    .net .edge{stroke:var(--netLine);stroke-width:1;animation:edgeLive 9s ease-in-out infinite}" > CSS
+    print "    .net .nd{fill:var(--netDot);animation:ndLive 7s ease-in-out infinite}" > CSS
+
+    # signals: spread the picks across the edge list so they do not overlap
+    for(s=0; s<SIG && ne>0; s++){
+      e = int(ne/SIG)*s
+      dx = x[ej[e]]-x[ei[e]]; dy = y[ej[e]]-y[ei[e]]
+      printf "    <circle class=\"sig g%d\" cx=\"%.1f\" cy=\"%.1f\" r=\"2.1\"/>\n", s, x[ei[e]], y[ei[e]] > SVG
+      printf "    @keyframes sig%d{0%%{transform:translate(0,0);opacity:0}12%%{opacity:1}85%%{opacity:1}100%%{transform:translate(%.1fpx,%.1fpx);opacity:0}}\n",
+             s, dx, dy > CSS
+      printf "    .net .g%d{animation:sig%d %.1fs cubic-bezier(.45,0,.55,1) %.1fs infinite}\n",
+             s, s, 3.4+s*0.9, s*1.3 > CSS
+    }
+    print "    .net .sig{fill:var(--netSig)}" > CSS
+    print "  </g>" > SVG
+    print "    @media (prefers-reduced-motion:reduce){.net .edge,.net .nd,.net .sig{animation:none!important}.net .sig{opacity:0}}" > CSS
+  }'
+}
+
+# ─────────────────────────────────────────────  thinking orb
+# Modelled on the "orbits" state of Jakub Antalik's thinking-orbs
+# (github.com/Jakubantalik/thinking-orbs): coreless and strictly monochrome —
+# tilted orbits, each a dotted ghost path with brighter particles running it.
+# A tilted circle projects to an ellipse, so each orbit is generated as one,
+# with the particle's path emitted as translate keyframes and its depth (size
+# and opacity) as a second animation on the same clock.
+
+gen_orb() { # gen_orb <cx> <cy> <r>
+  awk -v CX="$1" -v CY="$2" -v RR="$3" '
+  function acos(x){ return atan2(sqrt(1-x*x), x) }
+  # awk int() truncates toward zero; JS Math.floor rounds down. Using int()
+  # here silently produced a different hash for every negative value.
+  function floor(x){ return (x>=0) ? int(x) : ((x==int(x)) ? x : int(x)-1) }
+  function hashD(a,b,  h){ h = sin(a*12.9898 + b*78.233)*43758.5453; return h - floor(h) }
+  BEGIN{
+    SVG=".frag.ORB_SVG"; CSS=".frag.ORB_CSS"
+    printf "" > SVG; printf "" > CSS
+    PI=3.14159265358979
+    R  = RR*0.82          # orbits.ts: R = (size/2)*0.82
+    ORBITS=12; GHOST=30; PARTS=2; STEPS=24
+    TILT=0.3              # makeProj(yaw, tilt=0.3, ...) — yaw held at 0
+    SPD=1.885             # the tuned "orbits" preset speed
+    rs = ((RR*2)/300)^0.6 # radiusScale(size, 0.6)
+    ghostR = 0.9*rs; partR = 1.2*rs; partDepth = 1.6*rs
+    ct=cos(TILT); st=sin(TILT)
+
+    printf "  <g class=\"orb\" transform=\"translate(%s,%s)\">\n", CX, CY > SVG
+
+    for(i=0;i<ORBITS;i++){
+      h1=hashD(i,1.7); h2=hashD(i,5.2); h3=hashD(i,8.9)
+      ro  = R*(0.45+0.52*h1)
+      th  = h1*2*PI
+      phi = acos(2*h2-1)
+      nx=sin(phi)*cos(th); ny=cos(phi); nz=sin(phi)*sin(th)
+      ux=-ny; uy=nx; uz=0
+      ul=sqrt(ux*ux+uy*uy); if(ul<1e-6) ul=1e-6
+      ux/=ul; uy/=ul
+      vx = ny*uz - nz*uy
+      vy = nz*ux - nx*uz
+      vz = nx*uy - ny*ux
+      sp  = (0.25+0.55*h3) * ((h3>0.5)?1:-1)
+      ppd = (2*PI/((sp<0)?-sp:sp))/SPD      # seconds for one lap
+
+      # ghost path — every dot at its own projected position, so it is a plain
+      # round circle. No group transform, nothing to distort it.
+      for(g=0; g<GHOST; g++){
+        a  = (g/GHOST)*2*PI
+        ca = cos(a); sa = sin(a)
+        X = (ux*ca + vx*sa)*ro; Y = (uy*ca + vy*sa)*ro; Z = (uz*ca + vz*sa)*ro
+        y1 = Y*ct - Z*st; z2 = Y*st + Z*ct
+        depth = (z2/ro + 1)/2
+        printf "    <circle class=\"gh\" cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\" opacity=\"%.3f\"/>\n",
+               X, -y1, ghostR, 0.5*(0.4+0.6*depth) > SVG
+      }
+
+      # particles — one keyframe track each, carrying position, depth size and
+      # depth opacity together, so they ride the real 3-D orbit
+      for(m=0;m<PARTS;m++){
+        ph = (m/PARTS)*2*PI + h2*6
+        id = i "_" m
+        printf "    @keyframes pk%s{", id > CSS
+        for(s=0;s<=STEPS;s++){
+          a  = ph + sp/((sp<0)?-sp:sp) * (s/STEPS)*2*PI
+          ca = cos(a); sa = sin(a)
+          X = (ux*ca + vx*sa)*ro; Y = (uy*ca + vy*sa)*ro; Z = (uz*ca + vz*sa)*ro
+          y1 = Y*ct - Z*st; z2 = Y*st + Z*ct
+          depth = (z2/ro + 1)/2
+          printf "%.2f%%{transform:translate(%.2fpx,%.2fpx) scale(%.3f);opacity:%.3f}",
+                 (s/STEPS)*100, X, -y1, (partR+partDepth*depth)/partR, 0.45+0.5*depth > CSS
+        }
+        print "}" > CSS
+        printf "    .pk%s{animation:pk%s %.2fs linear infinite}\n", id, id, ppd > CSS
+        printf "    <g class=\"pk%s\"><circle class=\"pt\" r=\"%.2f\"/></g>\n", id, partR > SVG
+      }
+    }
+    print "  </g>" > SVG
+
+    print "    .orb .gh{fill:var(--orbInk)}" > CSS
+    print "    .orb .pt{fill:var(--orbInk)}" > CSS
+    print "    .orb g[class^=pk]{transform-box:fill-box;transform-origin:center}" > CSS
+    print "    @media (prefers-reduced-motion:reduce){" > CSS
+    print "      .orb g[class^=pk]{animation:none!important;opacity:.85}" > CSS
+    print "    }" > CSS
+  }'
 }
 
 # ─────────────────────────────────────────────  hero typewriter
@@ -138,30 +305,30 @@ build_typing() {
 
 build_typing
 
-hero() { # hero <out> <vars>
-  awk -v vars="$2" -v cssf=".typecss.tmp" -v svgf=".typesvg.tmp" '
-    /__VARS__/     { print vars; next }
-    /__TYPE_CSS__/ { while ((getline l < cssf) > 0) print l; close(cssf); next }
-    /__TYPING__/   { while ((getline l < svgf) > 0) print l; close(svgf); next }
-    { print }
-  ' src/hero.svg > "$1"
-}
+cp .typecss.tmp .frag.TYPE_CSS
+cp .typesvg.tmp .frag.TYPING
 
-hero assets/hero.svg       "$DARK"
-hero assets/hero-light.svg "$LIGHT"
-rm -f .typecss.tmp .typesvg.tmp
+# hero: network across the panel, orb sitting in the open space on the right
+gen_net 60 24 1244 282 26 7 0 5 .7
+gen_orb 1086 150 74
+render src/hero.svg assets/hero.svg       "$DARK"
+render src/hero.svg assets/hero-light.svg "$LIGHT"
+rm -f .typecss.tmp .typesvg.tmp .frag.TYPE_CSS .frag.TYPING
 
-theme src/cta.svg assets/cta.svg       "$DARK"
-theme src/cta.svg assets/cta-light.svg "$LIGHT"
+# cta: a sparser network, no orb
+gen_net 40 -4 1240 176 18 5 0 3 .45
+render src/cta.svg assets/cta.svg       "$DARK"
+render src/cta.svg assets/cta-light.svg "$LIGHT"
 
 # ─────────────────────────────────────────────  project cards
 # One bespoke animated diagram per project: src/card-<name>.svg
 
+gen_net 60 196 552 432 22 11 0 4 .8
 for card in src/card-*.svg; do
   [ -e "$card" ] || continue
   name=$(basename "$card" .svg | sed 's/^card-//')
-  theme "$card" "assets/projects/$name.svg"       "$DARK"
-  theme "$card" "assets/projects/$name-light.svg" "$LIGHT"
+  render "$card" "assets/projects/$name.svg"       "$DARK"
+  render "$card" "assets/projects/$name-light.svg" "$LIGHT"
 done
 
 for panel in src/panel-*.svg; do
@@ -317,3 +484,5 @@ theme .stack.tmp assets/stack-light.svg "$LIGHT"
 rm -f .stack.tmp .rows.tmp
 
 echo "built (stack height ${H}px): $(ls assets/*.svg | tr '\n' ' ')"
+
+rm -f .frag.*
