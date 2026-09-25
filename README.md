@@ -5,13 +5,13 @@
 
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero.svg" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg?v=2">
+  <img src="assets/hero.svg?v=2" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
 </picture>
 </p>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ## About
 
@@ -41,19 +41,19 @@ actually opens. The model is usually the part that takes the least time.
 </tr>
 </table>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ## Stack
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img src="assets/stack.svg" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg?v=2">
+  <img src="assets/stack.svg?v=2" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
 </picture>
 </p>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ## Selected Work
 
@@ -63,9 +63,9 @@ actually opens. The model is usually the part that takes the least time.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg">
-  <img src="assets/projects/hydronode.svg" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg?v=2">
+  <img src="assets/projects/hydronode.svg?v=2" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
 </p>
 
@@ -106,7 +106,7 @@ controls, and a monthly rollover that keeps the history sheet fast.
 
 <sub>~4,500 lines of firmware · ~1,900 lines of frontend · no framework, no build step · private repository</sub>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ### Semantic Notes
 
@@ -114,9 +114,9 @@ controls, and a monthly rollover that keeps the history sheet fast.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg">
-  <img src="assets/projects/semantic.svg" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg?v=2">
+  <img src="assets/projects/semantic.svg?v=2" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
 </picture>
 </p>
 
@@ -127,7 +127,7 @@ round-trip in the loop.
 
 <sub>In progress · private repository</sub>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ### Paper Trail
 
@@ -135,9 +135,9 @@ round-trip in the loop.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg">
-  <img src="assets/projects/papertrail.svg" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg?v=2">
+  <img src="assets/projects/papertrail.svg?v=2" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
 </p>
 
@@ -148,7 +148,7 @@ the one finding everything else is leaning on.
 
 <sub>In progress · private repository</sub>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ## Activity
 
@@ -178,7 +178,7 @@ the one finding everything else is leaning on.
 
 </div>
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 ## How I Work
 
@@ -188,14 +188,14 @@ the one finding everything else is leaning on.
 >
 > Anything that can hang, will — usually at 3am, while I'm asleep.
 
-<img src="assets/divider.svg" alt="" width="100%">
+<img src="assets/divider.svg?v=2" alt="" width="100%">
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg">
-  <img src="assets/cta.svg" alt="Have an interesting problem? Let's talk." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg?v=2">
+  <img src="assets/cta.svg?v=2" alt="Have an interesting problem? Let's talk." width="100%">
 </picture>
 
 <br>
