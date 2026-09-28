@@ -5,13 +5,13 @@
 
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg?v=3">
-  <img src="assets/hero.svg?v=3" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg?v=4">
+  <img src="assets/hero.svg?v=4" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
 </picture>
 </p>
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ## About
 
@@ -41,19 +41,19 @@ actually opens. The model is usually the part that takes the least time.
 </tr>
 </table>
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ## Stack
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg?v=3">
-  <img src="assets/stack.svg?v=3" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg?v=4">
+  <img src="assets/stack.svg?v=4" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
 </picture>
 </p>
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ## Selected Work
 
@@ -63,9 +63,9 @@ actually opens. The model is usually the part that takes the least time.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg?v=3">
-  <img src="assets/projects/hydronode.svg?v=3" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg?v=4">
+  <img src="assets/projects/hydronode.svg?v=4" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
 </p>
 
@@ -87,7 +87,7 @@ leaves the property, never the image.
 
 <sub>~4,500 lines of firmware · ~1,900 lines of frontend · no framework, no build step · private repository</sub>
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ### Semantic Notes
 
@@ -95,20 +95,32 @@ leaves the property, never the image.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg?v=3">
-  <img src="assets/projects/semantic.svg?v=3" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg?v=4">
+  <img src="assets/projects/semantic.svg?v=4" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally, with recall at one measured at 85.7 percent for the no-dependency version and 88.6 percent for the encoder." width="100%">
 </picture>
 </p>
 
-Everything is embedded and searched on the machine, so no notes leave it and there's no network
-round-trip in the loop.
+Two versions of the same search sit in one repo so they can be compared. The first builds its
+own vectors out of hashes and word co-occurrence, so it needs nothing but the standard library
+— no model to download and no network call anywhere in it. The second loads a real sentence
+encoder behind FastAPI and does the same job the expensive way.
 
-`Python` · `SQLite` · standard library only
+Both exist because of the benchmark. 35 questions, each tagged with the note that should come
+back first, all written before either version was run against them. The encoder finished **one
+question ahead** — 88.6% against 85.7% recall@1 — and both put the right note in the top three
+every single time. On 26 notes they are level and the gigabyte of dependencies has not paid for
+itself yet. The keyword questions went to the version with no dependencies, which figures:
+matching a literal token is what a posting list is for and what a dense vector blurs.
+
+Keeping the cheap version was the useful outcome. The place an encoder should pull ahead is the
+place the corpus cannot test yet — questions phrased in words the notes have never used.
+
+`Python` · `SQLite` · `FastAPI` · `sentence-transformers` · stdlib-only core
 
 [Repository](https://github.com/aadycm/semantic-notes)
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ### Paper Trail
 
@@ -116,9 +128,9 @@ round-trip in the loop.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg?v=3">
-  <img src="assets/projects/papertrail.svg?v=3" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg?v=4">
+  <img src="assets/projects/papertrail.svg?v=4" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
 </p>
 
@@ -129,7 +141,7 @@ the one finding everything else is leaning on.
 
 [Repository](https://github.com/aadycm/paper-trail)
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ### Agent Reliability
 
@@ -137,9 +149,9 @@ the one finding everything else is leaning on.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/agentloop.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/agentloop-light.svg?v=3">
-  <img src="assets/projects/agentloop.svg?v=3" alt="An agent loop between a model and its tools, run under three stress conditions, with success falling from 100 percent at baseline to 38 percent once search results are degraded." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/agentloop.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/agentloop-light.svg?v=4">
+  <img src="assets/projects/agentloop.svg?v=4" alt="An agent loop between a model and its tools, run under three stress conditions, with success falling from 100 percent at baseline to 38 percent once search results are degraded." width="100%">
 </picture>
 </p>
 
@@ -169,7 +181,7 @@ loop detector only caught *identical* repeated calls, so every reworded loop sli
 
 [Repository](https://github.com/aadycm/agent-reliability)
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ## Activity
 
@@ -199,7 +211,7 @@ loop detector only caught *identical* repeated calls, so every reworded loop sli
 
 </div>
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 ## How I Work
 
@@ -209,14 +221,14 @@ loop detector only caught *identical* repeated calls, so every reworded loop sli
 >
 > Anything that can hang, will — usually at 3am, while I'm asleep.
 
-<img src="assets/divider.svg?v=3" alt="" width="100%">
+<img src="assets/divider.svg?v=4" alt="" width="100%">
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg?v=3">
-  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg?v=3">
-  <img src="assets/cta.svg?v=3" alt="Have an interesting problem? Let's talk." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg?v=4">
+  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg?v=4">
+  <img src="assets/cta.svg?v=4" alt="Have an interesting problem? Let's talk." width="100%">
 </picture>
 
 <br>
