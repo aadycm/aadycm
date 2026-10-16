@@ -107,9 +107,26 @@ Raise `count` for density, `opacity` for presence. Both write fragments that `re
 splices into the `__NET_SVG__` / `__NET_CSS__` / `__ORB_SVG__` / `__ORB_CSS__` slots in the
 templates, so a template only marks *where* a motif goes.
 
+## The bento grids
+
+Three grids, all plain HTML tables in `README.md`, each cell holding one generated tile:
+
+| Grid | Cells | Source |
+|---|---|---|
+| Top row | identity, focus, right now | `src/panel-*.svg`, one file each |
+| Selected Work index | four project tiles, linked to the repos | `tile()` in `build.sh` |
+| How I Work | three principles | `ptile()` in `build.sh` |
+
+`tile()` is the wide 620×190 shape used two to a row; `ptile()` is the 420×230 shape used
+three to a row. A wide tile at a third of the page puts 11px type on screen, which is why
+there are two shapes and not one. To add a tile, call the function — the dark and light
+variants are both generated from the one call.
+
 ## What animates
 
-Twenty-four effects, all CSS inside the SVGs — no JavaScript, which GitHub strips anyway.
+All CSS inside the SVGs — no JavaScript, which GitHub strips anyway, and no `:hover`,
+which GitHub also strips. Anything that reacts to the cursor is impossible on a profile
+README; everything here animates on load or on a loop instead.
 
 | Asset | Motion | Cycle |
 |---|---|---|
@@ -126,6 +143,11 @@ Twenty-four effects, all CSS inside the SVGs — no JavaScript, which GitHub str
 | Semantic Notes | Question falls into the orb, answer leaves it | 6s |
 | Paper Trail | Four citations travel the graph edges | 12s |
 | Stack | Rows and chips fade up on a stagger | once |
+| Bento tiles | Glass edge breathes, kicker pip pulses | 7–8s |
+| Bento tiles | Tile rises and scales in on load | once |
+| Bento tiles | Accent rule under each title draws out | once |
+| Focus | One marker travels the three fields | 9s |
+| Right now | Live dot pulses, FIGURING OUT label breathes | 2.6s / 4.2s |
 | Divider | A light crosses the rule | 11s |
 | Divider | A second, fainter light crosses back | 17s |
 | Divider | Centre node pulses | 5s |

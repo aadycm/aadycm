@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" width="420" height="260" role="img" aria-label="Aadithya Chandramouli, fourth year computer science student and learning assistant at Penn State University, based in India.">
+<defs>
+  <style>
+__VARS__
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+
+    /* every tile in the grid reveals the same way: up and slightly in */
+    @keyframes rise{from{opacity:0;transform:translateY(8px) scale(.985)}
+      to{opacity:1;transform:none}}
+    .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
+
+    /* the 1px edge breathes instead of sitting flat, which is what sells glass */
+    @keyframes edge{0%,100%{opacity:.5}50%{opacity:1}}
+    .edge{animation:edge 7s ease-in-out infinite}
+
+    @keyframes blip{0%,100%{opacity:.35;r:2}50%{opacity:1;r:2.8}}
+    .blip{animation:blip 3.4s ease-in-out infinite}
+
+    @media (prefers-reduced-motion:reduce){
+      .in,.edge,.blip{animation:none!important}
+      .in{transform:none}
+    }
+  </style>
+  <linearGradient id="glass" x1="0" y1="0" x2=".35" y2="1">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity=".07"/>
+    <stop offset="55%" stop-color="var(--sheenC)" stop-opacity=".015"/>
+    <stop offset="100%" stop-color="var(--v)" stop-opacity=".05"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="var(--v)" stop-opacity=".55"/>
+    <stop offset="45%" stop-color="var(--border)" stop-opacity=".9"/>
+    <stop offset="100%" stop-color="var(--c)" stop-opacity=".4"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity=".5"/>
+    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="420" height="260" rx="18" fill="var(--panel)"/>
+<rect width="420" height="260" rx="18" fill="url(#glass)"/>
+<rect class="edge" x=".75" y=".75" width="418.5" height="258.5" rx="17.5" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+<rect x="28" y="1" width="364" height="1" fill="url(#sheen)"/>
+
+<g class="in">
+  <text class="m" x="32" y="42" font-size="10" letter-spacing="1.8" fill="var(--label)">PROFILE</text>
+</g>
+
+<g class="in" style="animation-delay:.08s">
+  <text class="f" x="32" y="84" font-size="22" font-weight="600" fill="var(--nameA)">Aadithya</text>
+  <text class="f" x="32" y="112" font-size="22" font-weight="600" fill="var(--nameA)">Chandramouli</text>
+</g>
+
+<g class="in" style="animation-delay:.16s">
+  <rect x="32" y="134" width="40" height="1.5" rx="1" fill="var(--v)" opacity=".8"/>
+</g>
+
+<g class="in" style="animation-delay:.22s">
+  <text class="f" x="32" y="168" font-size="13" font-weight="500" fill="var(--text)">4th-year Computer Science</text>
+  <text class="f" x="32" y="190" font-size="13" fill="var(--muted)">Penn State University</text>
+</g>
+
+<g class="in" style="animation-delay:.3s">
+  <circle class="blip" cx="37" cy="216" r="2" fill="var(--live)"/>
+  <text class="m" x="50" y="220" font-size="10.5" fill="var(--muted)">LEARNING ASSISTANT</text>
+  <text class="m" x="32" y="242" font-size="10.5" fill="var(--dim)">India</text>
+</g>
+</svg>

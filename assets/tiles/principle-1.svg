@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" width="420" height="230" role="img" aria-label="Delete before adding. I'd rather delete code than add it.">
+<defs>
+  <style>
+:root{
+  --bg:#0D1117; --border:#30363D;
+  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
+  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
+  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
+  --gridC:#FFFFFF; --gridA:.022;
+  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
+  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
+  --orbInk:#E7EAF0;
+}
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    @keyframes rise{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+    .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
+    @keyframes edge{0%,100%{opacity:.45}50%{opacity:.95}}
+    .edge{animation:edge 8s ease-in-out infinite}
+    @keyframes pip{0%,100%{opacity:.4}50%{opacity:1}}
+    .pip{animation:pip 3.6s ease-in-out infinite}
+    @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    .rule{transform-box:fill-box;transform-origin:left center;
+      animation:draw 1s cubic-bezier(.16,.84,.24,1) .2s backwards}
+    @media (prefers-reduced-motion:reduce){
+      .in,.edge,.pip,.rule{animation:none!important}
+      .in,.rule{transform:none}
+    }
+  </style>
+  <linearGradient id="glass" x1="0" y1="0" x2=".3" y2="1">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity=".06"/>
+    <stop offset="60%" stop-color="var(--sheenC)" stop-opacity=".012"/>
+    <stop offset="100%" stop-color="var(--c)" stop-opacity=".06"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="var(--c)" stop-opacity=".5"/>
+    <stop offset="50%" stop-color="var(--border)" stop-opacity=".9"/>
+    <stop offset="100%" stop-color="var(--c)" stop-opacity=".3"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity=".45"/>
+    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="420" height="230" rx="18" fill="var(--panel)"/>
+<rect width="420" height="230" rx="18" fill="url(#glass)"/>
+<rect class="edge" x=".75" y=".75" width="418.5" height="228.5" rx="17.5" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+<rect x="28" y="1" width="364" height="1" fill="url(#sheen)"/>
+
+<g class="in">
+  <circle class="pip" cx="37" cy="38" r="3" fill="var(--c)"/>
+  <text class="m" x="52" y="42" font-size="10" letter-spacing="1.8" fill="var(--label)">PRINCIPLE 01</text>
+</g>
+<g class="in" style="animation-delay:.08s">
+  <text class="f" x="32" y="92" font-size="19" font-weight="600" fill="var(--nameA)">Delete before adding</text>
+  <rect class="rule" x="32" y="110" width="52" height="1.5" rx="1" fill="var(--c)" opacity=".85"/>
+</g>
+<g class="in" style="animation-delay:.18s">
+  <text class="f" x="32" y="142" font-size="13.5" fill="var(--text)">I'd rather delete code than</text>
+  <text class="f" x="32" y="164" font-size="13.5" fill="var(--text)">add it.</text>
+  <text class="f" x="32" y="186" font-size="13.5" fill="var(--text)"></text>
+  <text class="m" x="32" y="212" font-size="10.5" fill="var(--dim)">smaller surface, fewer places to be wrong</text>
+</g>
+</svg>

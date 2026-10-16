@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" width="420" height="260" role="img" aria-label="Right now: teaching HydroNode to look at the plants instead of just measuring the air. Figuring out: how small a model can get before it stops being useful on a board with no GPU.">
+<defs>
+  <style>
+:root{
+  --bg:#0D1117; --border:#30363D;
+  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
+  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
+  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
+  --gridC:#FFFFFF; --gridA:.022;
+  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
+  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
+  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
+  --orbInk:#E7EAF0;
+}
+    .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+
+    @keyframes rise{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+    .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
+
+    @keyframes edge{0%,100%{opacity:.5}50%{opacity:1}}
+    .edge{animation:edge 7s ease-in-out infinite}
+
+    /* live dot for the thing being worked on, question mark beat for the open one */
+    @keyframes live{0%,100%{opacity:.4;r:2.4}50%{opacity:1;r:3.4}}
+    .live{animation:live 2.6s ease-in-out infinite}
+    @keyframes seek{0%,100%{opacity:.35}50%{opacity:.9}}
+    .seek{animation:seek 4.2s ease-in-out infinite}
+
+    @media (prefers-reduced-motion:reduce){
+      .in,.edge,.live,.seek{animation:none!important}
+      .in{transform:none}
+    }
+  </style>
+  <linearGradient id="glass" x1="0" y1="0" x2=".35" y2="1">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity=".07"/>
+    <stop offset="55%" stop-color="var(--sheenC)" stop-opacity=".015"/>
+    <stop offset="100%" stop-color="var(--live)" stop-opacity=".05"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="var(--live)" stop-opacity=".45"/>
+    <stop offset="45%" stop-color="var(--border)" stop-opacity=".9"/>
+    <stop offset="100%" stop-color="var(--v)" stop-opacity=".45"/>
+  </linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity=".5"/>
+    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect width="420" height="260" rx="18" fill="var(--panel)"/>
+<rect width="420" height="260" rx="18" fill="url(#glass)"/>
+<rect class="edge" x=".75" y=".75" width="418.5" height="258.5" rx="17.5" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+<rect x="28" y="1" width="364" height="1" fill="url(#sheen)"/>
+
+<g class="in">
+  <circle class="live" cx="37" cy="38" r="2.4" fill="var(--live)"/>
+  <text class="m" x="50" y="42" font-size="10" letter-spacing="1.8" fill="var(--label)">RIGHT NOW</text>
+</g>
+
+<g class="in" style="animation-delay:.1s">
+  <text class="f" x="32" y="76" font-size="13.5" font-weight="500" fill="var(--text)">Teaching HydroNode to look at</text>
+  <text class="f" x="32" y="98" font-size="13.5" font-weight="500" fill="var(--text)">the plants instead of just</text>
+  <text class="f" x="32" y="120" font-size="13.5" font-weight="500" fill="var(--text)">measuring the air.</text>
+</g>
+
+<g class="in" style="animation-delay:.18s">
+  <rect x="32" y="144" width="356" height="1" fill="var(--border)"/>
+</g>
+
+<g class="in" style="animation-delay:.26s">
+  <text class="m seek" x="32" y="170" font-size="10" letter-spacing="1.8" fill="var(--label)">FIGURING OUT</text>
+  <text class="f" x="32" y="196" font-size="13.5" fill="var(--muted)">How small a model can get before</text>
+  <text class="f" x="32" y="218" font-size="13.5" fill="var(--muted)">it stops being useful on a board</text>
+  <text class="f" x="32" y="240" font-size="13.5" fill="var(--muted)">with no GPU.</text>
+</g>
+</svg>
