@@ -3,7 +3,7 @@
 #
 #   sh build.sh
 #
-# Each asset is generated twice — dark and light — from one source, so the two
+# Each asset is generated twice — ink and paper — from one source, so the two
 # variants can never drift apart. Edit src/*.svg for copy, the STACK section
 # here for technologies, and the palettes below for colour.
 
@@ -13,32 +13,32 @@ mkdir -p assets/projects
 # ─────────────────────────────────────────────  palettes
 #
 # Contrast against the background (WCAG AA needs 4.5:1 for body text, 3:1 for large):
-#   dark  --nameA 16.9  --text 13.0  --muted 8.0  --dim 5.9  --label 5.9
-#   light --nameA 19.4  --text 11.3  --muted 7.4  --dim 5.9  --label 5.9
+#   ink   --nameA 16.4  --text 12.8  --muted 8.0  --dim 5.6  --label 5.6
+#   paper --nameA 16.1  --text 13.2  --muted 7.7  --dim 5.1  --label 5.1
 # --sep is decorative punctuation only and is deliberately below that floor.
 
 DARK=':root{
-  --bg:#0D1117; --border:#30363D;
-  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
-  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
-  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
-  --gridC:#FFFFFF; --gridA:.022;
-  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
-  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
-  --orbInk:#E7EAF0;
+  --bg:#15120E; --border:#3A332A;
+  --v:#E8744A; --c:#8FB9C6; --live:#A9C08E; --washA:.10;
+  --nameA:#F5F0E6; --text:#DDD5C6; --muted:#B2A997; --dim:#948B7C;
+  --sheenC:#E8744A; --sheenA:.5; --washB:.07; --pillLit:#E8744A;
+  --gridC:#F5F0E6; --gridA:.02;
+  --label:#948B7C; --sep:#4A4236; --chipStroke:#3A332A;
+  --panel:#1D1915; --wire:#4A4236; --dotOff:#4A4236; --paper:#6B6354; --track:#241F19;
+  --netLine:#473E33; --netDot:#7A7161; --netSig:#E8744A;
+  --orbInk:#F5F0E6;
 }'
 
 LIGHT=':root{
-  --bg:#FFFFFF; --border:#D1D9E0;
-  --v:#7C3AED; --c:#0E7490; --live:#059669; --washA:.05;
-  --nameA:#0D0E11; --text:#33373F; --muted:#565C68; --dim:#666C79;
-  --sheenC:#A78BFA; --sheenA:.55; --washB:.05; --pillLit:#A78BFA;
-  --gridC:#0D1117; --gridA:.04;
-  --label:#666C79; --sep:#C6CAD2; --chipStroke:#D8DCE2;
-  --panel:#F8FAFC; --wire:#C3C9D4; --dotOff:#C3C9D4; --paper:#9AA2B0; --track:#EDEFF3;
-  --netLine:#CBD2DC; --netDot:#98A1B0; --netSig:#0E7490;
-  --orbInk:#12141A;
+  --bg:#F3EEE4; --border:#CDC2AD;
+  --v:#B23E08; --c:#1F4E5F; --live:#41602C; --washA:.05;
+  --nameA:#15120E; --text:#2A251D; --muted:#51493C; --dim:#6B6355;
+  --sheenC:#B23E08; --sheenA:.35; --washB:.04; --pillLit:#B23E08;
+  --gridC:#15120E; --gridA:.035;
+  --label:#6B6355; --sep:#C2B7A2; --chipStroke:#CDC2AD;
+  --panel:#FBF8F2; --wire:#B9AF9C; --dotOff:#C2B7A2; --paper:#8C8373; --track:#E5DDCE;
+  --netLine:#CFC5B2; --netDot:#A89C86; --netSig:#B23E08;
+  --orbInk:#15120E;
 }'
 
 theme() { # theme <src> <out> <vars>
@@ -354,48 +354,34 @@ tile() { # tile <out> <accent> <kicker> <title> <line1> <line2>
 __VARS__
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    .d{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif}
     @keyframes rise{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
     .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
-    @keyframes edge{0%,100%{opacity:.45}50%{opacity:.95}}
-    .edge{animation:edge 8s ease-in-out infinite}
-    @keyframes pip{0%,100%{opacity:.4}50%{opacity:1}}
-    .pip{animation:pip 3.6s ease-in-out infinite}
+    @keyframes spine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    .spine{transform-box:fill-box;transform-origin:top center;
+      animation:spine 1.1s cubic-bezier(.16,.84,.24,1) backwards}
+    @keyframes tick{0%,100%{opacity:.45}50%{opacity:1}}
+    .pip{animation:tick 4.4s ease-in-out infinite}
     @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .rule{transform-box:fill-box;transform-origin:left center;
       animation:draw 1s cubic-bezier(.16,.84,.24,1) .2s backwards}
     @media (prefers-reduced-motion:reduce){
-      .in,.edge,.pip,.rule{animation:none!important}
-      .in,.rule{transform:none}
+      .in,.spine,.pip,.rule{animation:none!important}
+      .in,.rule,.spine{transform:none}
     }
   </style>
-  <linearGradient id="glass" x1="0" y1="0" x2=".3" y2="1">
-    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity=".06"/>
-    <stop offset="60%" stop-color="var(--sheenC)" stop-opacity=".012"/>
-    <stop offset="100%" stop-color="var($accent)" stop-opacity=".06"/>
-  </linearGradient>
-  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="var($accent)" stop-opacity=".5"/>
-    <stop offset="50%" stop-color="var(--border)" stop-opacity=".9"/>
-    <stop offset="100%" stop-color="var($accent)" stop-opacity=".3"/>
-  </linearGradient>
-  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
-    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity=".45"/>
-    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
-  </linearGradient>
 </defs>
 
-<rect width="620" height="190" rx="18" fill="var(--panel)"/>
-<rect width="620" height="190" rx="18" fill="url(#glass)"/>
-<rect class="edge" x=".75" y=".75" width="618.5" height="188.5" rx="17.5" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
-<rect x="40" y="1" width="540" height="1" fill="url(#sheen)"/>
+<rect width="620" height="190" rx="3" fill="var(--panel)"/>
+<rect x=".5" y=".5" width="619" height="189" rx="2.5" fill="none" stroke="var(--border)" stroke-width="1"/>
+<rect class="spine" x="0" y="0" width="3" height="190" fill="var($accent)"/>
 
 <g class="in">
-  <circle class="pip" cx="37" cy="38" r="3" fill="var($accent)"/>
-  <text class="m" x="52" y="42" font-size="10" letter-spacing="1.8" fill="var(--label)">$kicker</text>
+  <rect class="pip" x="32" y="34" width="6" height="6" fill="var($accent)"/>
+  <text class="m" x="48" y="42" font-size="10" letter-spacing="2.2" fill="var(--label)">$kicker</text>
 </g>
 <g class="in" style="animation-delay:.08s">
-  <text class="f" x="32" y="86" font-size="19" font-weight="600" fill="var(--nameA)">$title</text>
+  <text class="d" x="32" y="86" font-size="21" font-weight="400" fill="var(--nameA)">$title</text>
   <rect class="rule" x="32" y="104" width="56" height="1.5" rx="1" fill="var($accent)" opacity=".85"/>
 </g>
 <g class="in" style="animation-delay:.18s">
@@ -409,7 +395,7 @@ TILE
   rm -f .tile.tmp
 }
 
-tile hydronode   --live "LIVE · HYDRONODE.IN" "HydroNode" \
+tile hydronode   --v "LIVE · HYDRONODE.IN" "HydroNode" \
   "Five growing systems, each running its own controller." \
   "ESP32 · firmware watchdogs · on-device vision"
 
@@ -417,7 +403,7 @@ tile semantic    --v "PUBLIC REPO" "Semantic Notes" \
   "Two versions of the same search, benchmarked against each other." \
   "88.6% vs 85.7% recall@1 — one question apart"
 
-tile papertrail  --c "PUBLIC REPO" "Paper Trail" \
+tile papertrail  --v "PUBLIC REPO" "Paper Trail" \
   "Turns a reading list into a map of what rests on what." \
   "PageRank · articulation points · stdlib only"
 
@@ -438,48 +424,34 @@ ptile() { # ptile <out> <accent> <kicker> <title> <line1> <line2>
 __VARS__
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+    .d{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif}
     @keyframes rise{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
     .in{animation:rise .8s cubic-bezier(.16,.84,.24,1) backwards}
-    @keyframes edge{0%,100%{opacity:.45}50%{opacity:.95}}
-    .edge{animation:edge 8s ease-in-out infinite}
-    @keyframes pip{0%,100%{opacity:.4}50%{opacity:1}}
-    .pip{animation:pip 3.6s ease-in-out infinite}
+    @keyframes spine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    .spine{transform-box:fill-box;transform-origin:top center;
+      animation:spine 1.1s cubic-bezier(.16,.84,.24,1) backwards}
+    @keyframes tick{0%,100%{opacity:.45}50%{opacity:1}}
+    .pip{animation:tick 4.4s ease-in-out infinite}
     @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .rule{transform-box:fill-box;transform-origin:left center;
       animation:draw 1s cubic-bezier(.16,.84,.24,1) .2s backwards}
     @media (prefers-reduced-motion:reduce){
-      .in,.edge,.pip,.rule{animation:none!important}
-      .in,.rule{transform:none}
+      .in,.spine,.pip,.rule{animation:none!important}
+      .in,.rule,.spine{transform:none}
     }
   </style>
-  <linearGradient id="glass" x1="0" y1="0" x2=".3" y2="1">
-    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity=".06"/>
-    <stop offset="60%" stop-color="var(--sheenC)" stop-opacity=".012"/>
-    <stop offset="100%" stop-color="var($accent)" stop-opacity=".06"/>
-  </linearGradient>
-  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="var($accent)" stop-opacity=".5"/>
-    <stop offset="50%" stop-color="var(--border)" stop-opacity=".9"/>
-    <stop offset="100%" stop-color="var($accent)" stop-opacity=".3"/>
-  </linearGradient>
-  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="var(--sheenC)" stop-opacity="0"/>
-    <stop offset="50%" stop-color="var(--sheenC)" stop-opacity=".45"/>
-    <stop offset="100%" stop-color="var(--sheenC)" stop-opacity="0"/>
-  </linearGradient>
 </defs>
 
-<rect width="420" height="230" rx="18" fill="var(--panel)"/>
-<rect width="420" height="230" rx="18" fill="url(#glass)"/>
-<rect class="edge" x=".75" y=".75" width="418.5" height="228.5" rx="17.5" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
-<rect x="28" y="1" width="364" height="1" fill="url(#sheen)"/>
+<rect width="420" height="230" rx="3" fill="var(--panel)"/>
+<rect x=".5" y=".5" width="419" height="229" rx="2.5" fill="none" stroke="var(--border)" stroke-width="1"/>
+<rect class="spine" x="0" y="0" width="3" height="230" fill="var($accent)"/>
 
 <g class="in">
-  <circle class="pip" cx="37" cy="38" r="3" fill="var($accent)"/>
-  <text class="m" x="52" y="42" font-size="10" letter-spacing="1.8" fill="var(--label)">$kicker</text>
+  <rect class="pip" x="32" y="34" width="6" height="6" fill="var($accent)"/>
+  <text class="m" x="48" y="42" font-size="10" letter-spacing="2.2" fill="var(--label)">$kicker</text>
 </g>
 <g class="in" style="animation-delay:.08s">
-  <text class="f" x="32" y="92" font-size="19" font-weight="600" fill="var(--nameA)">$title</text>
+  <text class="d" x="32" y="92" font-size="21" font-weight="400" fill="var(--nameA)">$title</text>
   <rect class="rule" x="32" y="110" width="52" height="1.5" rx="1" fill="var($accent)" opacity=".85"/>
 </g>
 <g class="in" style="animation-delay:.18s">
@@ -497,11 +469,11 @@ PTILE
 
 # the three lines are the ones that were in the blockquote, word for word
 
-ptile principle-1 --c "PRINCIPLE 01" "Delete before adding" \
+ptile principle-1 --v "PRINCIPLE 01" "Delete before adding" \
   "I'd rather delete code than" "add it." "" \
   "smaller surface, fewer places to be wrong"
 
-ptile principle-2 --live "PRINCIPLE 02" "Someone else has to use it" \
+ptile principle-2 --v "PRINCIPLE 02" "Someone else has to use it" \
   "Nothing is finished until someone" "else has used it and told me" "what's wrong with it." \
   "their first question is the design review"
 
@@ -515,34 +487,33 @@ cat > assets/divider.svg <<'EOF'
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 12" width="1280" height="12" role="img" aria-label="">
   <defs>
     <style>
-      @keyframes glide{0%{transform:translateX(-200px)}100%{transform:translateX(1320px)}}
-      @keyframes fade{0%,100%{opacity:0}15%,85%{opacity:.9}}
-      @keyframes glideBack{0%{transform:translateX(1320px)}100%{transform:translateX(-200px)}}
-      @keyframes fade2{0%,100%{opacity:0}20%,80%{opacity:.45}}
-      @keyframes nodePulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
-      .trav{animation:glide 11s cubic-bezier(.4,0,.6,1) infinite,fade 11s linear infinite}
-      .trav2{animation:glideBack 17s cubic-bezier(.4,0,.6,1) 5s infinite,fade2 17s linear 5s infinite}
-      .node{transform-box:fill-box;transform-origin:center;animation:nodePulse 5s ease-in-out infinite}
+      /* one file serves both themes, so these colours are picked to sit on bone
+         paper and on ink without either of them looking wrong */
+      @keyframes glide{0%{transform:translateX(-120px)}100%{transform:translateX(1340px)}}
+      @keyframes fade{0%,100%{opacity:0}18%,82%{opacity:.85}}
+      @keyframes tick{0%,100%{opacity:.3}50%{opacity:.85}}
+      .trav{animation:glide 15s cubic-bezier(.33,0,.5,1) infinite,fade 15s linear infinite}
+      .tick{animation:tick 6s ease-in-out infinite}
       @media (prefers-reduced-motion:reduce){
-        .trav,.trav2,.node{animation:none}
-        .trav,.trav2{opacity:0}
+        .trav,.tick{animation:none}
+        .trav{opacity:0}
       }
     </style>
-    <linearGradient id="d" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#8B5CF6" stop-opacity=".38"/>
-      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A89C86" stop-opacity="0"/>
+      <stop offset="22%" stop-color="#A89C86" stop-opacity=".55"/>
+      <stop offset="78%" stop-color="#A89C86" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#A89C86" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="t" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D1572A" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#D1572A" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#D1572A" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="5.5" width="1280" height="1" fill="url(#d)"/>
-  <rect class="trav2" x="0" y="5" width="150" height="2" rx="1" fill="url(#t)"/>
-  <rect class="trav" x="0" y="5" width="200" height="2" rx="1" fill="url(#t)"/>
-  <circle class="node" cx="640" cy="6" r="2" fill="#8B5CF6"/>
+  <rect x="0" y="6" width="1280" height="1" fill="url(#rule)"/>
+  <rect class="trav" x="0" y="6" width="90" height="1" fill="url(#mark)"/>
+  <rect class="tick" x="637" y="4" width="5" height="5" fill="#D1572A"/>
 </svg>
 EOF
 
@@ -587,7 +558,7 @@ emit_row() { # emit_row <label> <items...>
     chipMid=$(( cx + half ))
     glow=$(( SCAN_DELAY_MS + SCAN_MOVE_MS * (chipMid + 190) / 1700 - 250 ))
     [ "$glow" -lt 0 ] && glow=0
-    printf '    <g transform="translate(%s,%s)"><g class="chip" style="animation-delay:%sms"><rect class="chipR" style="animation-delay:%sms" width="%s" height="28" rx="14" fill="none" stroke="var(--chipStroke)"/><text class="f" x="%s" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">%s</text></g></g>\n' "$cx" "$cy" "$cd_" "$glow" "$w" "$half" "$name" >> .rows.tmp
+    printf '    <g transform="translate(%s,%s)"><g class="chip" style="animation-delay:%sms"><rect class="chipR" style="animation-delay:%sms" width="%s" height="28" rx="3" fill="none" stroke="var(--chipStroke)"/><text class="f" x="%s" text-anchor="middle" y="19" font-size="12.5" font-weight="450" fill="var(--text)">%s</text></g></g>\n' "$cx" "$cy" "$cd_" "$glow" "$w" "$half" "$name" >> .rows.tmp
     cx=$(( cx + w + 8 )); n=$(( n + 1 ))
   done
 
@@ -640,10 +611,10 @@ __VARS__
       <stop offset="50%" stop-color="var(--v)" stop-opacity=".10"/>
       <stop offset="100%" stop-color="var(--v)" stop-opacity="0"/>
     </linearGradient>
-    <clipPath id="panelClip"><rect x=".75" y=".75" width="1278.5" height="$(( H - 2 ))" rx="16"/></clipPath>
+    <clipPath id="panelClip"><rect x=".75" y=".75" width="1278.5" height="$(( H - 2 ))" rx="3"/></clipPath>
   </defs>
   <rect width="1280" height="$H" fill="var(--bg)"/>
-  <rect x=".75" y=".75" width="1278.5" height="$(( H - 2 )).5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+  <rect x=".75" y=".75" width="1278.5" height="$(( H - 2 )).5" rx="3" fill="none" stroke="var(--border)" stroke-width="1.5"/>
 HDR
 cat .rows.tmp
 printf '  <g clip-path="url(#panelClip)"><rect class="scan" x="-320" y="0" width="260" height="%s" fill="url(#scanG)"/></g>\n' "$H"

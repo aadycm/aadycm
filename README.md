@@ -5,33 +5,26 @@
 
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg?v=5">
-  <img src="assets/hero.svg?v=5" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg?v=6">
+  <img src="assets/hero.svg?v=6" alt="Aadithya Chandramouli — CS senior at Penn State, building AI systems." width="100%">
 </picture>
 </p>
 
 <table>
 <tr>
-<td width="33.3%">
+<td width="50%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/identity.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/identity-light.svg?v=5">
-  <img src="assets/identity.svg?v=5" alt="Aadithya Chandramouli, 4th-year Computer Science and Learning Assistant at Penn State University, India." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/identity.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/identity-light.svg?v=6">
+  <img src="assets/identity.svg?v=6" alt="Aadithya Chandramouli, 4th-year Computer Science and Learning Assistant at Penn State University, India." width="100%">
 </picture>
 </td>
-<td width="33.3%">
+<td width="50%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/focus.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/focus-light.svg?v=5">
-  <img src="assets/focus.svg?v=5" alt="Focus: artificial intelligence, computational biology, quantitative finance." width="100%">
-</picture>
-</td>
-<td width="33.3%">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/now.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/now-light.svg?v=5">
-  <img src="assets/now.svg?v=5" alt="Right now: teaching HydroNode to look at the plants. Figuring out: how small a model can get on a board with no GPU." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/now.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/now-light.svg?v=6">
+  <img src="assets/now.svg?v=6" alt="Right now: teaching HydroNode to look at the plants. Figuring out: how small a model can get on a board with no GPU." width="100%">
 </picture>
 </td>
 </tr>
@@ -49,19 +42,19 @@ time.
 - I've spent enough nights chasing a crash that turned out to be a loose wire to care a lot
   about logs, watchdogs, and things that fail loudly.
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ## Stack
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg?v=5">
-  <img src="assets/stack.svg?v=5" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg?v=6">
+  <img src="assets/stack.svg?v=6" alt="Stack — languages, AI and ML, backend, frontend, data, infrastructure" width="100%">
 </picture>
 </p>
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ## Selected Work
 
@@ -70,18 +63,18 @@ time.
 <td width="50%">
 <a href="https://hydronode.in">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/hydronode.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/hydronode-light.svg?v=5">
-  <img src="assets/tiles/hydronode.svg?v=5" alt="HydroNode — five growing systems, each running its own controller. Live at hydronode.in." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/hydronode.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/hydronode-light.svg?v=6">
+  <img src="assets/tiles/hydronode.svg?v=6" alt="HydroNode — five growing systems, each running its own controller. Live at hydronode.in." width="100%">
 </picture>
 </a>
 </td>
 <td width="50%">
 <a href="https://github.com/aadycm/semantic-notes">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/semantic.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/semantic-light.svg?v=5">
-  <img src="assets/tiles/semantic.svg?v=5" alt="Semantic Notes — two versions of the same search, 88.6 percent against 85.7 percent recall at one." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/semantic.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/semantic-light.svg?v=6">
+  <img src="assets/tiles/semantic.svg?v=6" alt="Semantic Notes — two versions of the same search, 88.6 percent against 85.7 percent recall at one." width="100%">
 </picture>
 </a>
 </td>
@@ -90,25 +83,25 @@ time.
 <td width="50%">
 <a href="https://github.com/aadycm/paper-trail">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/papertrail.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/papertrail-light.svg?v=5">
-  <img src="assets/tiles/papertrail.svg?v=5" alt="Paper Trail — turns a reading list into a map of what rests on what." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/papertrail.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/papertrail-light.svg?v=6">
+  <img src="assets/tiles/papertrail.svg?v=6" alt="Paper Trail — turns a reading list into a map of what rests on what." width="100%">
 </picture>
 </a>
 </td>
 <td width="50%">
 <a href="https://github.com/aadycm/agent-reliability">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/agentloop.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/agentloop-light.svg?v=5">
-  <img src="assets/tiles/agentloop.svg?v=5" alt="Agent Reliability — 100 percent at baseline, 38 percent once search degrades." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/agentloop.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/agentloop-light.svg?v=6">
+  <img src="assets/tiles/agentloop.svg?v=6" alt="Agent Reliability — 100 percent at baseline, 38 percent once search degrades." width="100%">
 </picture>
 </a>
 </td>
 </tr>
 </table>
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ### HydroNode &nbsp;·&nbsp; [hydronode.in](https://hydronode.in)
 
@@ -116,9 +109,9 @@ time.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg?v=5">
-  <img src="assets/projects/hydronode.svg?v=5" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/hydronode.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/hydronode-light.svg?v=6">
+  <img src="assets/projects/hydronode.svg?v=6" alt="HydroNode architecture: five growing nodes and a camera feed a live path, a history path and an on-device vision path, all converging on one dashboard." width="100%">
 </picture>
 </p>
 
@@ -140,7 +133,7 @@ leaves the property, never the image.
 
 <sub>~4,500 lines of firmware · ~1,900 lines of frontend · no framework, no build step · private repository</sub>
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ### Semantic Notes
 
@@ -148,9 +141,9 @@ leaves the property, never the image.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg?v=5">
-  <img src="assets/projects/semantic.svg?v=5" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally, with recall at one measured at 85.7 percent for the no-dependency version and 88.6 percent for the encoder." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/semantic.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/semantic-light.svg?v=6">
+  <img src="assets/projects/semantic.svg?v=6" alt="Semantic Notes: a question is embedded and matched against note vectors held on the device, then answered locally, with recall at one measured at 85.7 percent for the no-dependency version and 88.6 percent for the encoder." width="100%">
 </picture>
 </p>
 
@@ -173,7 +166,7 @@ place the corpus cannot test yet — questions phrased in words the notes have n
 
 [Repository](https://github.com/aadycm/semantic-notes)
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ### Paper Trail
 
@@ -181,9 +174,9 @@ place the corpus cannot test yet — questions phrased in words the notes have n
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg?v=5">
-  <img src="assets/projects/papertrail.svg?v=5" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/papertrail.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/papertrail-light.svg?v=6">
+  <img src="assets/projects/papertrail.svg?v=6" alt="Paper Trail: papers become a graph of claims and citations, highlighting which results others depend on." width="100%">
 </picture>
 </p>
 
@@ -194,7 +187,7 @@ the one finding everything else is leaning on.
 
 [Repository](https://github.com/aadycm/paper-trail)
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ### Agent Reliability
 
@@ -202,9 +195,9 @@ the one finding everything else is leaning on.
 
 <p>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/agentloop.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/projects/agentloop-light.svg?v=5">
-  <img src="assets/projects/agentloop.svg?v=5" alt="An agent loop between a model and its tools, run under three stress conditions, with success falling from 100 percent at baseline to 38 percent once search results are degraded." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/projects/agentloop.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/projects/agentloop-light.svg?v=6">
+  <img src="assets/projects/agentloop.svg?v=6" alt="An agent loop between a model and its tools, run under three stress conditions, with success falling from 100 percent at baseline to 38 percent once search results are degraded." width="100%">
 </picture>
 </p>
 
@@ -234,37 +227,22 @@ loop detector only caught *identical* repeated calls, so every reworded loop sli
 
 [Repository](https://github.com/aadycm/agent-reliability)
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ## Activity
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=0D1117&stroke=30363D&ring=8B5CF6&fire=22D3EE&currStreakNum=F4F5F8&sideNums=F4F5F8&currStreakLabel=A8AEBB&sideLabels=A8AEBB&dates=8F96A4&excludeDaysLabel=8F96A4">
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=FFFFFF&stroke=D1D9E0&ring=7C3AED&fire=0E7490&currStreakNum=0D0E11&sideNums=0D0E11&currStreakLabel=565C68&sideLabels=565C68&dates=666C79&excludeDaysLabel=666C79">
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=15120E&stroke=3A332A&ring=E8744A&fire=E8744A&currStreakNum=F5F0E6&sideNums=F5F0E6&currStreakLabel=B2A997&sideLabels=B2A997&dates=948B7C&excludeDaysLabel=948B7C">
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=F3EEE4&stroke=CDC2AD&ring=B23E08&fire=B23E08&currStreakNum=15120E&sideNums=15120E&currStreakLabel=51493C&sideLabels=51493C&dates=6B6355&excludeDaysLabel=6B6355">
   <img alt="Total contributions, current streak and longest streak" width="88%"
-    src="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=0D1117&stroke=30363D&ring=8B5CF6&fire=22D3EE&currStreakNum=F4F5F8&sideNums=F4F5F8&currStreakLabel=A8AEBB&sideLabels=A8AEBB&dates=8F96A4&excludeDaysLabel=8F96A4">
-</picture>
-
-<br>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=github_dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=default">
-  <img height="200" alt="Commits, pull requests, issues and contributions"
-    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=aadycm&theme=github_dark">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=github_dark&utcOffset=5.5">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=default&utcOffset=5.5">
-  <img height="200" alt="When during the day the commits happen"
-    src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=aadycm&theme=github_dark&utcOffset=5.5">
+    src="https://streak-stats.demolab.com?user=aadycm&hide_border=true&background=15120E&stroke=3A332A&ring=E8744A&fire=E8744A&currStreakNum=F5F0E6&sideNums=F5F0E6&currStreakLabel=B2A997&sideLabels=B2A997&dates=948B7C&excludeDaysLabel=948B7C">
 </picture>
 
 </div>
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 ## How I Work
 
@@ -272,36 +250,36 @@ loop detector only caught *identical* repeated calls, so every reworded loop sli
 <tr>
 <td width="33.3%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-1.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-1-light.svg?v=5">
-  <img src="assets/tiles/principle-1.svg?v=5" alt="Delete before adding — the best version of most code is less of it." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-1.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-1-light.svg?v=6">
+  <img src="assets/tiles/principle-1.svg?v=6" alt="Delete before adding — the best version of most code is less of it." width="100%">
 </picture>
 </td>
 <td width="33.3%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-2.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-2-light.svg?v=5">
-  <img src="assets/tiles/principle-2.svg?v=5" alt="Ship it to someone — nothing is finished until someone else has used it." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-2.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-2-light.svg?v=6">
+  <img src="assets/tiles/principle-2.svg?v=6" alt="Ship it to someone — nothing is finished until someone else has used it." width="100%">
 </picture>
 </td>
 <td width="33.3%">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-3.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-3-light.svg?v=5">
-  <img src="assets/tiles/principle-3.svg?v=5" alt="Assume it hangs — anything that can hang will, usually at 3am." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tiles/principle-3.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tiles/principle-3-light.svg?v=6">
+  <img src="assets/tiles/principle-3.svg?v=6" alt="Assume it hangs — anything that can hang will, usually at 3am." width="100%">
 </picture>
 </td>
 </tr>
 </table>
 
-<img src="assets/divider.svg?v=5" alt="" width="100%">
+<img src="assets/divider.svg?v=6" alt="" width="100%">
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg?v=5">
-  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg?v=5">
-  <img src="assets/cta.svg?v=5" alt="Have an interesting problem? Let's talk." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cta.svg?v=6">
+  <source media="(prefers-color-scheme: light)" srcset="assets/cta-light.svg?v=6">
+  <img src="assets/cta.svg?v=6" alt="Have an interesting problem? Let's talk." width="100%">
 </picture>
 
 <br>

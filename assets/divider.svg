@@ -1,32 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 12" width="1280" height="12" role="img" aria-label="">
   <defs>
     <style>
-      @keyframes glide{0%{transform:translateX(-200px)}100%{transform:translateX(1320px)}}
-      @keyframes fade{0%,100%{opacity:0}15%,85%{opacity:.9}}
-      @keyframes glideBack{0%{transform:translateX(1320px)}100%{transform:translateX(-200px)}}
-      @keyframes fade2{0%,100%{opacity:0}20%,80%{opacity:.45}}
-      @keyframes nodePulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
-      .trav{animation:glide 11s cubic-bezier(.4,0,.6,1) infinite,fade 11s linear infinite}
-      .trav2{animation:glideBack 17s cubic-bezier(.4,0,.6,1) 5s infinite,fade2 17s linear 5s infinite}
-      .node{transform-box:fill-box;transform-origin:center;animation:nodePulse 5s ease-in-out infinite}
+      /* one file serves both themes, so these colours are picked to sit on bone
+         paper and on ink without either of them looking wrong */
+      @keyframes glide{0%{transform:translateX(-120px)}100%{transform:translateX(1340px)}}
+      @keyframes fade{0%,100%{opacity:0}18%,82%{opacity:.85}}
+      @keyframes tick{0%,100%{opacity:.3}50%{opacity:.85}}
+      .trav{animation:glide 15s cubic-bezier(.33,0,.5,1) infinite,fade 15s linear infinite}
+      .tick{animation:tick 6s ease-in-out infinite}
       @media (prefers-reduced-motion:reduce){
-        .trav,.trav2,.node{animation:none}
-        .trav,.trav2{opacity:0}
+        .trav,.tick{animation:none}
+        .trav{opacity:0}
       }
     </style>
-    <linearGradient id="d" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#8B5CF6" stop-opacity=".38"/>
-      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A89C86" stop-opacity="0"/>
+      <stop offset="22%" stop-color="#A89C86" stop-opacity=".55"/>
+      <stop offset="78%" stop-color="#A89C86" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#A89C86" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="t" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#67E8F9" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D1572A" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#D1572A" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#D1572A" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="5.5" width="1280" height="1" fill="url(#d)"/>
-  <rect class="trav2" x="0" y="5" width="150" height="2" rx="1" fill="url(#t)"/>
-  <rect class="trav" x="0" y="5" width="200" height="2" rx="1" fill="url(#t)"/>
-  <circle class="node" cx="640" cy="6" r="2" fill="#8B5CF6"/>
+  <rect x="0" y="6" width="1280" height="1" fill="url(#rule)"/>
+  <rect class="trav" x="0" y="6" width="90" height="1" fill="url(#mark)"/>
+  <rect class="tick" x="637" y="4" width="5" height="5" fill="#D1572A"/>
 </svg>

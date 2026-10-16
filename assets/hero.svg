@@ -2,17 +2,18 @@
 <defs>
   <style>
 :root{
-  --bg:#0D1117; --border:#30363D;
-  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
-  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
-  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
-  --gridC:#FFFFFF; --gridA:.022;
-  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
-  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
-  --orbInk:#E7EAF0;
+  --bg:#15120E; --border:#3A332A;
+  --v:#E8744A; --c:#8FB9C6; --live:#A9C08E; --washA:.10;
+  --nameA:#F5F0E6; --text:#DDD5C6; --muted:#B2A997; --dim:#948B7C;
+  --sheenC:#E8744A; --sheenA:.5; --washB:.07; --pillLit:#E8744A;
+  --gridC:#F5F0E6; --gridA:.02;
+  --label:#948B7C; --sep:#4A4236; --chipStroke:#3A332A;
+  --panel:#1D1915; --wire:#4A4236; --dotOff:#4A4236; --paper:#6B6354; --track:#241F19;
+  --netLine:#473E33; --netDot:#7A7161; --netSig:#E8744A;
+  --orbInk:#F5F0E6;
 }
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .d{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif}
     .m{font-family:'SF Mono','JetBrains Mono','Fira Code',ui-monospace,Menlo,Consolas,monospace}
 
     /* entrance — every element is visible at rest; `backwards` hides it only during its delay */
@@ -159,7 +160,7 @@
   </radialGradient>
 
 
-  <clipPath id="round"><rect x=".75" y=".75" width="1278.5" height="298.5" rx="16"/></clipPath>
+  <clipPath id="round"><rect x=".75" y=".75" width="1278.5" height="298.5" rx="3"/></clipPath>
 </defs>
 
 <g clip-path="url(#round)">
@@ -648,7 +649,7 @@
   </g>
 
   <g class="in d2">
-    <text class="f" x="72" y="128" font-size="60" font-weight="600" letter-spacing="-1.8" fill="var(--nameA)">Aadithya Chandramouli</text>
+    <text class="d" x="72" y="128" font-size="58" font-weight="400" fill="var(--nameA)">Aadithya Chandramouli</text>
   </g>
 
   <rect class="in d3 accentRule" x="72" y="152" width="72" height="2" rx="1" fill="url(#rule)"/>
@@ -677,6 +678,6 @@
     <text class="m" x="404" y="12" font-size="12" letter-spacing=".8" fill="var(--dim)">AADYCM05@GMAIL.COM</text>
   </g></g>
 </g>
-<rect x=".75" y=".75" width="1278.5" height="298.5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>
-<rect class="runner" x=".75" y=".75" width="1278.5" height="298.5" rx="16" fill="none" stroke="url(#runnerGrad)" stroke-width="1.5" stroke-linecap="round"/>
+<rect x=".75" y=".75" width="1278.5" height="298.5" rx="3" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+<rect class="runner" x=".75" y=".75" width="1278.5" height="298.5" rx="3" fill="none" stroke="url(#runnerGrad)" stroke-width="1.5" stroke-linecap="round"/>
 </svg>

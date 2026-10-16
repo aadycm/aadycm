@@ -2,17 +2,18 @@
 <defs>
   <style>
 :root{
-  --bg:#0D1117; --border:#30363D;
-  --v:#8B5CF6; --c:#22D3EE; --live:#34D399; --washA:.13;
-  --nameA:#F4F5F8; --text:#D7DAE1; --muted:#A8AEBB; --dim:#8F96A4;
-  --sheenC:#FFFFFF; --sheenA:.75; --washB:.10; --pillLit:#4A5568;
-  --gridC:#FFFFFF; --gridA:.022;
-  --label:#8F96A4; --sep:#41454F; --chipStroke:#363C45;
-  --panel:#11161D; --wire:#3A4250; --dotOff:#3A4250; --paper:#5A6472; --track:#20262F;
-  --netLine:#3B4658; --netDot:#6D7A8C; --netSig:#22D3EE;
-  --orbInk:#E7EAF0;
+  --bg:#15120E; --border:#3A332A;
+  --v:#E8744A; --c:#8FB9C6; --live:#A9C08E; --washA:.10;
+  --nameA:#F5F0E6; --text:#DDD5C6; --muted:#B2A997; --dim:#948B7C;
+  --sheenC:#E8744A; --sheenA:.5; --washB:.07; --pillLit:#E8744A;
+  --gridC:#F5F0E6; --gridA:.02;
+  --label:#948B7C; --sep:#4A4236; --chipStroke:#3A332A;
+  --panel:#1D1915; --wire:#4A4236; --dotOff:#4A4236; --paper:#6B6354; --track:#241F19;
+  --netLine:#473E33; --netDot:#7A7161; --netSig:#E8744A;
+  --orbInk:#F5F0E6;
 }
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .d{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif}
     .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
 
     @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -68,7 +69,7 @@
     <stop offset="50%" stop-color="var(--v)" stop-opacity=".85"/>
     <stop offset="100%" stop-color="var(--c)" stop-opacity="0"/>
   </linearGradient>
-  <clipPath id="r2"><rect x=".75" y=".75" width="1278.5" height="178.5" rx="16"/></clipPath>
+  <clipPath id="r2"><rect x=".75" y=".75" width="1278.5" height="178.5" rx="3"/></clipPath>
   <clipPath id="titleClip">
     <text class="f" x="640" y="100" text-anchor="middle" font-size="34" font-weight="600" letter-spacing="-.9">Have an interesting problem? Let's talk.</text>
   </clipPath>
@@ -138,20 +139,20 @@
   <text class="m in d1" x="640" y="56" text-anchor="middle" font-size="11.5" letter-spacing="2" fill="var(--label)">LET'S WORK TOGETHER</text>
 
   <g class="in d2">
-    <text class="f" x="640" y="100" text-anchor="middle" font-size="34" font-weight="600" letter-spacing="-.9" fill="var(--nameA)">Have an interesting problem? Let's talk.</text>
+    <text class="d" x="640" y="100" text-anchor="middle" font-size="33" font-weight="400" fill="var(--nameA)">Have an interesting problem? Let's talk.</text>
     <g clip-path="url(#titleClip)">
       <rect class="sheen" x="530" y="70" width="130" height="42" fill="url(#sheenGrad2)"/>
     </g>
   </g>
 
   <g transform="translate(472,124)"><g class="in d3">
-    <rect class="pill" x="0" y="0" width="336" height="34" rx="17" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+    <rect class="pill" x="0" y="0" width="336" height="34" rx="2.5" fill="none" stroke="var(--border)" stroke-width="1.5"/>
     <text class="m" x="160" y="22" text-anchor="middle" font-size="12.5" letter-spacing=".5" fill="var(--text)">aadycm05@gmail.com</text>
     <g transform="translate(298,17)"><g class="arrow">
       <path d="M0 0 H9 M5.5 -3.5 L9 0 L5.5 3.5" fill="none" stroke="var(--c)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
     </g></g>
   </g></g>
 </g>
-<rect x=".75" y=".75" width="1278.5" height="178.5" rx="16" fill="none" stroke="var(--border)" stroke-width="1.5"/>
-<rect class="runner" x=".75" y=".75" width="1278.5" height="178.5" rx="16" fill="none" stroke="url(#runner2)" stroke-width="1.5" stroke-linecap="round"/>
+<rect x=".75" y=".75" width="1278.5" height="178.5" rx="3" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+<rect class="runner" x=".75" y=".75" width="1278.5" height="178.5" rx="3" fill="none" stroke="url(#runner2)" stroke-width="1.5" stroke-linecap="round"/>
 </svg>

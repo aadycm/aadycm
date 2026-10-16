@@ -3,6 +3,7 @@
   <style>
     __VARS__
     .f{font-family:'Inter','SF Pro Display',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .d{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif}
     .m{font-family:'SF Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
     .box{fill:var(--panel);stroke:var(--border);stroke-width:1.5}
     .wire{fill:none;stroke:var(--wire);stroke-width:1.5}
@@ -37,23 +38,23 @@
   </style>
 </defs>
 
-<rect width="800" height="528" rx="14" fill="var(--bg)"/>
-<rect x=".75" y=".75" width="798.5" height="518.5" rx="14" fill="none" stroke="var(--border)" stroke-width="1.5"/>
+<rect width="800" height="528" rx="3" fill="var(--bg)"/>
+<rect x=".75" y=".75" width="798.5" height="518.5" rx="3" fill="none" stroke="var(--border)" stroke-width="1.5"/>
 
 <text class="m" x="40" y="46" font-size="12" letter-spacing="1.8" fill="var(--label)">AGENT RELIABILITY</text>
-<text class="f" x="40" y="76" font-size="17" font-weight="600" fill="var(--nameA)">Where a tool-using agent actually breaks</text>
+<text class="d" x="40" y="76" font-size="19" font-weight="400" fill="var(--nameA)">Where a tool-using agent actually breaks</text>
 
 <!-- the loop -->
 <path class="wire" d="M228 128 H346"/>
 <path class="wire" d="M346 176 H228"/>
 
-<rect class="box model" x="40" y="104" width="188" height="96" rx="12"/>
+<rect class="box model" x="40" y="104" width="188" height="96" rx="3"/>
 <text class="m" x="60" y="130" font-size="10.5" letter-spacing="1.5" fill="var(--c)">MODEL</text>
 <text class="f" x="60" y="152" font-size="12.5" font-weight="500" fill="var(--text)">plans the next step</text>
 <text class="m" x="60" y="172" font-size="9.5" fill="var(--muted)">native function calling</text>
 <text class="m" x="60" y="190" font-size="9.5" fill="var(--muted)">max 12 steps</text>
 
-<rect class="box tools" x="346" y="104" width="188" height="96" rx="12"/>
+<rect class="box tools" x="346" y="104" width="188" height="96" rx="3"/>
 <text class="m" x="366" y="130" font-size="10.5" letter-spacing="1.5" fill="var(--live)">TOOLS</text>
 <text class="f" x="366" y="152" font-size="12.5" font-weight="500" fill="var(--text)">search · files · python</text>
 <text class="m" x="366" y="172" font-size="9.5" fill="var(--muted)">sandboxed</text>
@@ -66,7 +67,7 @@
 <text class="m" x="248" y="192" font-size="9" fill="var(--muted)">result</text>
 
 <!-- the stress knobs -->
-<rect class="box" x="576" y="104" width="184" height="96" rx="12"/>
+<rect class="box" x="576" y="104" width="184" height="96" rx="3"/>
 <text class="m" x="596" y="130" font-size="10.5" letter-spacing="1.5" fill="var(--v)">STRESS</text>
 <text class="f" x="596" y="150" font-size="11.5" fill="var(--text)">flaky tools</text>
 <text class="f" x="596" y="168" font-size="11.5" fill="var(--text)">tight step budget</text>
@@ -77,23 +78,23 @@
 
 <g>
   <text class="f" x="40" y="286" font-size="12" fill="var(--text)">baseline</text>
-  <rect x="210" y="276" width="440" height="10" rx="5" fill="var(--track)"/>
-  <rect class="bar" x="210" y="276" width="440" height="10" rx="5" fill="var(--live)" opacity=".85"/>
+  <rect x="210" y="276" width="440" height="10" rx="2" fill="var(--track)"/>
+  <rect class="bar" x="210" y="276" width="440" height="10" rx="2" fill="var(--live)" opacity=".85"/>
   <text class="m" x="664" y="286" font-size="11" fill="var(--muted)">100%</text>
 
   <text class="f" x="40" y="318" font-size="12" fill="var(--text)">flaky tools</text>
-  <rect x="210" y="308" width="440" height="10" rx="5" fill="var(--track)"/>
-  <rect class="bar" x="210" y="308" width="402" height="10" rx="5" fill="var(--c)" opacity=".8" style="animation-delay:.1s"/>
+  <rect x="210" y="308" width="440" height="10" rx="2" fill="var(--track)"/>
+  <rect class="bar" x="210" y="308" width="402" height="10" rx="2" fill="var(--c)" opacity=".8" style="animation-delay:.1s"/>
   <text class="m" x="664" y="318" font-size="11" fill="var(--muted)">91.3%</text>
 
   <text class="f" x="40" y="350" font-size="12" fill="var(--text)">tight budget</text>
-  <rect x="210" y="340" width="440" height="10" rx="5" fill="var(--track)"/>
-  <rect class="bar" x="210" y="340" width="325" height="10" rx="5" fill="var(--c)" opacity=".65" style="animation-delay:.2s"/>
+  <rect x="210" y="340" width="440" height="10" rx="2" fill="var(--track)"/>
+  <rect class="bar" x="210" y="340" width="325" height="10" rx="2" fill="var(--c)" opacity=".65" style="animation-delay:.2s"/>
   <text class="m" x="664" y="350" font-size="11" fill="var(--muted)">73.9%</text>
 
   <text class="f" x="40" y="382" font-size="12" fill="var(--text)">degraded search</text>
-  <rect x="210" y="372" width="440" height="10" rx="5" fill="var(--track)"/>
-  <rect class="bar" x="210" y="372" width="168" height="10" rx="5" fill="var(--v)" style="animation-delay:.3s"/>
+  <rect x="210" y="372" width="440" height="10" rx="2" fill="var(--track)"/>
+  <rect class="bar" x="210" y="372" width="168" height="10" rx="2" fill="var(--v)" style="animation-delay:.3s"/>
   <text class="m" x="664" y="382" font-size="11" fill="var(--v)">38.1%</text>
 </g>
 

@@ -107,13 +107,36 @@ Raise `count` for density, `opacity` for presence. Both write fragments that `re
 splices into the `__NET_SVG__` / `__NET_CSS__` / `__ORB_SVG__` / `__ORB_CSS__` slots in the
 templates, so a template only marks *where* a motif goes.
 
+## The palette
+
+Ink on bone. One accent, burnt orange, used for anything that needs pointing at; the petrol
+and olive appear only inside diagrams, where two colours mean two different things.
+
+| | paper (light) | ink (dark) |
+|---|---|---|
+| page | `#F3EEE4` | `#15120E` |
+| panel | `#FBF8F2` | `#1D1915` |
+| display text | `#15120E` | `#F5F0E6` |
+| body text | `#2A251D` | `#DDD5C6` |
+| accent | `#B23E08` | `#E8744A` |
+| hairline | `#CDC2AD` | `#3A332A` |
+
+Display type is a serif (Iowan Old Style, Palatino, Georgia) at weight 400 — serif at 600
+reads clotted. Labels are mono at 10px with wide tracking. Body stays sans. Panels are flat
+paper with a 1px hairline box, a 3px corner and a 3px accent spine down the left edge. No
+glass, no glow, no gradients on any surface.
+
+Both files in `build.sh` carry every variable, so changing a colour in one place changes it
+everywhere in both themes. The contrast ratios in the header comment are measured, not
+guessed; rerun them if you touch a value.
+
 ## The bento grids
 
 Three grids, all plain HTML tables in `README.md`, each cell holding one generated tile:
 
 | Grid | Cells | Source |
 |---|---|---|
-| Top row | identity, focus, right now | `src/panel-*.svg`, one file each |
+| Top row | identity, right now | `src/panel-*.svg`, one file each |
 | Selected Work index | four project tiles, linked to the repos | `tile()` in `build.sh` |
 | How I Work | three principles | `ptile()` in `build.sh` |
 
@@ -143,14 +166,13 @@ README; everything here animates on load or on a loop instead.
 | Semantic Notes | Question falls into the orb, answer leaves it | 6s |
 | Paper Trail | Four citations travel the graph edges | 12s |
 | Stack | Rows and chips fade up on a stagger | once |
-| Bento tiles | Glass edge breathes, kicker pip pulses | 7–8s |
+| Bento tiles | Accent spine draws down the left edge | once |
 | Bento tiles | Tile rises and scales in on load | once |
+| Bento tiles | Kicker tick breathes | 4.4s |
 | Bento tiles | Accent rule under each title draws out | once |
-| Focus | One marker travels the three fields | 9s |
 | Right now | Live dot pulses, FIGURING OUT label breathes | 2.6s / 4.2s |
-| Divider | A light crosses the rule | 11s |
-| Divider | A second, fainter light crosses back | 17s |
-| Divider | Centre node pulses | 5s |
+| Divider | A mark crosses the rule | 15s |
+| Divider | Centre tick breathes | 6s |
 | CTA | Sheen sweeps the headline | 8s |
 | CTA | Light runs the card border | 8s |
 | CTA | Halo breathes | 12s |
