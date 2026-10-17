@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="118" viewBox="0 0 880 118" role="img" aria-label="COMMIT LOG: Shipping, in public.">
+<defs>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(757 0) scale(484 130)">
+<stop offset="0" stop-color="#FFB547" stop-opacity=".16"/><stop offset="1" stop-color="#FFB547" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#F7ECDE" fill-opacity=".06"/></pattern>
+
+</defs>
+<style>
+.serif{font-family:Georgia,'Times New Roman',serif;fill:#F7ECDE}
+.mono{font-family:ui-monospace,'SF Mono','Cascadia Mono',Consolas,Menlo,monospace} .mono:not([letter-spacing]){letter-spacing:.14em}
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.ink{fill:#F7ECDE} .muted{fill:#A7937C} .faint{fill:#7B6851} .acc{fill:#FFB547} .warn{fill:#FF6B5A}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+.run{animation:run 6s cubic-bezier(.45,0,.2,1) infinite}
+@keyframes run{0%{transform:translateX(0);opacity:0}10%{opacity:1}80%{opacity:1}100%{transform:translateX(800px);opacity:0}}
+</style>
+
+<rect x="4" y="22" width="7" height="7" fill="#FFB547"/>
+<text x="20" y="30" class="mono acc" font-size="11">03  COMMIT LOG</text>
+<text x="876" y="30" class="mono faint" font-size="10" text-anchor="end">LAST 12 MONTHS</text>
+<text x="2" y="82" class="serif" font-size="40">Shipping, in public.</text>
+<line x1="4" x2="876" y1="104" y2="104" stroke="#2D251C"/>
+<line x1="4" x2="180" y1="104" y2="104" stroke="#FFB547"/>
+<circle class="run" cx="40" cy="104" r="2.5" fill="#FFB547"/>
+
+</svg>
