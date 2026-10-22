@@ -18,8 +18,6 @@
 
 <img src="A/r-injection.svg" width="100%" alt="Prompt-injection defenses research">
 
-<img src="A/r-reward.svg" width="100%" alt="Reward modeling research">
-
 <img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research">
 
 <br>

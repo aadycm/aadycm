@@ -152,7 +152,6 @@ TAGLINES = [
     'I break LLM agents on purpose to see where they fail.',
     'Bad information broke my agent more than broken tools.',
     'Do agents report honestly when a defense blocks them?',
-    'Teaching reward models which recourse people prefer.',
 ]
 
 
@@ -620,39 +619,6 @@ def r_injection(p):
                  'ADVISOR DR. SUMAN SAHA · FALL 2026 – NOW', None, m, tl.style(), 'Prompt-injection defenses research')
 
 
-def r_reward(p):
-    tl = TL(12.0, 'rb')
-    A, Mu, F, L = p['accent'], p['muted'], p['faint'], p['line']
-    m = tl.text(0, 16, 22, 'WHICH RECOURSE DO PEOPLE PREFER?', 'mono faint', 9, off=6.2)
-    m += tl.text(6.5, 16, 22, 'LEARN A SCORE THAT PREDICTS IT', 'mono acc', 9)
-    m += f'<g class="{tl.indicate(1.6, 1.06)}">' + box(tl, .3, 16, 44, 96, 44, A) + '</g>'
-    m += tl.text(.7, 28, 70, 'OPTION A', 'mono ink', 8)
-    m += box(tl, .5, 16, 100, 96, 44, L)
-    m += tl.text(.9, 28, 126, 'OPTION B', 'mono muted', 8)
-    m += P('M88 66 l5 5 l10 -11', tl.draw(1.4, .35), p, A, 'stroke-width="2"')
-    m += tl.text(2.0, 124, 70, 'r(A)', 'serif', 13, extra='font-style="italic"')
-    m += tl.text(2.3, 124, 126, 'r(B)', 'serif muted', 13, extra='font-style="italic"')
-    ox, oy, xs, ys, top = 180, 150, 19.25, 88, 62
-    m += P(f'M{ox} {oy} H{ox + 154}', tl.draw(2.6, .6), p, Mu)
-    m += P(f'M{ox + 77} {oy} V{top - 8}', tl.draw(2.7, .5), p, Mu)
-    m += f'<line class="{tl.fade(2.9, .6)}" x1="{ox}" x2="{ox + 154}" y1="{top}" y2="{top}" stroke="{F}" stroke-dasharray="3 4"/>'
-    pts = [(ox + (x + 4) * xs, oy - ys / (1 + math.exp(-x))) for x in [i / 10 - 4 for i in range(81)]]
-    m += P('M' + ' L'.join(f'{x:.1f} {y:.1f}' for x, y in pts), tl.draw(3.1, 1.3), p, A, 'stroke-width="2"')
-    m += tl.text(4.4, 180, 44, 'P(A ≻ B) = σ(r(A) − r(B))', 'serif', 11, extra='font-style="italic"')
-    way = [(ox + (x + 4) * xs, oy - ys / (1 + math.exp(-x))) for x in [-3, -1.5, 0, 1, 1.8]]
-    def tr(q, op):
-        return f'opacity:{op};transform:translate({q[0]:.1f}px,{q[1]:.1f}px)'
-    fr = [(0, tr(way[0], 0)), (4.9, tr(way[0], 0))]
-    for j, q in enumerate(way):
-        fr.append((5.0 + j * .3, tr(q, 1)))
-    fr += [(tl.out0, tr(way[-1], 1)), (tl.out1, tr(way[-1], 0)), (12, tr(way[-1], 0))]
-    m += f'<circle class="{tl.anim(fr)}" r="4" fill="{A}" opacity="0"/>'
-    m += tl.text(7.0, 16, 180, '~3,400 CHOICES · 2 IRB-APPROVED STUDIES', 'mono acc', 8, extra='letter-spacing=".1em"')
-    return rcard(p, 'R2 · RLHF · PREFERENCE LEARNING', 'Reward models for recourse',
-                 'Pairwise reward models, the preference-learning step of RLHF, that predict which recourse users prefer. XGBoost learning-to-rank and a PyTorch Bradley–Terry model.',
-                 'ADVISOR DR. AMULYA YADAV · FALL 2026 – NOW', None, m, tl.style(), 'Reward modeling research')
-
-
 def r_framing(p):
     tl = TL(12.0, 'rc')
     A, Mu, L = p['accent'], p['muted'], p['line']
@@ -682,9 +648,9 @@ def r_framing(p):
     for y in (82, 164):
         m += tl.text(6.9, 297, y, 'PRIORITIES ?', 'mono acc', 7.5, 'middle', extra='letter-spacing=".08em"')
     m += tl.text(7.6, 16, 180, 'STUDENT-LED · EXPERIMENT IN DESIGN', 'mono faint', 8, extra='letter-spacing=".1em"')
-    return rcard(p, 'R3 · DECISIONS · HUMANS AND LLMS', 'Humans vs LLMs on risk',
+    return rcard(p, 'R2 · DECISIONS · HUMANS AND LLMS', 'Humans vs LLMs on risk',
                  'A student-led study of how the initial framing of a scenario shapes what humans and LLMs prioritize when safety and environmental risk is ambiguous.',
-                 'MENTOR DR. JEREMY GERNAND · FALL 2026 – NOW', None, m, tl.style(), 'Risk decision research')
+                 'ADVISOR DR. JEREMY GERNAND · FALL 2026 – NOW', None, m, tl.style(), 'Risk decision research')
 
 
 # ---------- heatmap with a snake ----------
@@ -835,7 +801,6 @@ def build(name, out):
         'h-research.svg': header(p, '02', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW'),
         'h-research-light.svg': header(p, '02', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW', light=True),
         'r-injection.svg': r_injection(p),
-        'r-reward.svg': r_reward(p),
         'r-framing.svg': r_framing(p),
         'h-log.svg': header(p, '03', 'COMMIT LOG', 'Shipping, in public.', 'LAST 12 MONTHS'),
         'h-log-light.svg': header(p, '03', 'COMMIT LOG', 'Shipping, in public.', 'LAST 12 MONTHS', light=True),
