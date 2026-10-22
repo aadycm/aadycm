@@ -240,7 +240,7 @@ def hero_fourier(p):
         g += f'<g transform="translate({r:.3f} 0)">'
         pk, pphi = k, phi
     g += f'<circle r="3.2" fill="{p["accent"]}"/>' + '</g></g></g>' * len(terms) + '</g>'
-    for name, dk in spins:
+    for name, dk in sorted(spins):
         if dk:
             css += f'@keyframes {name}{{to{{transform:rotate({dk * 360}deg)}}}}.{name}{{animation:{name} {T}s linear infinite}}'
 
@@ -745,7 +745,7 @@ def heatmap(p):
 
 def skills(p):
     rows = [('LANGUAGES', ['Python', 'C++', 'Java', 'Swift', 'JavaScript', 'SQL']),
-            ('ML / AI', ['PyTorch', 'TensorFlow', 'OpenCV', 'YOLOv8', 'XGBoost', 'Pandas']),
+            ('ML / AI', ['PyTorch', 'TensorFlow', 'OpenCV', 'YOLOv8', 'Pandas']),
             ('LLMS & AGENTS', ['Prompt engineering', 'LLM APIs', 'Function calling', 'AgentDojo', 'RAG', 'LangChain', 'Vector embeddings']),
             ('EMBEDDED', ['ESP32', 'Renesas RA4M1', 'RS485 Modbus']),
             ('BACKEND & TOOLS', ['Node.js', 'Firebase', 'FastAPI', 'Apps Script', 'Git'])]
