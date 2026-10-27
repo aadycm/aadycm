@@ -744,7 +744,7 @@ def heatmap(p):
 # ---------- skills ----------
 
 def skills(p):
-    rows = [('LANGUAGES', ['Python', 'C++', 'Java', 'Swift', 'JavaScript', 'SQL']),
+    rows = [('LANGUAGES', ['Python', 'C++', 'Java', 'Swift', 'JavaScript', 'SQL', 'MATLAB']),
             ('ML / AI', ['PyTorch', 'TensorFlow', 'OpenCV', 'YOLOv8', 'Pandas']),
             ('LLMS & AGENTS', ['Prompt engineering', 'LLM APIs', 'Function calling', 'AgentDojo', 'RAG', 'LangChain', 'Vector embeddings']),
             ('EMBEDDED', ['ESP32', 'Renesas RA4M1', 'RS485 Modbus']),
