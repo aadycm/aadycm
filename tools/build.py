@@ -21,9 +21,6 @@ SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 W = 880
 # manim's smooth rate function near enough
 SMOOTH = 'cubic-bezier(.65,0,.35,1)'
-# github's own dark theme contribution colours so the heatmap keeps its usual green whatever the palette
-GITHUB_EMPTY = '#151B23'
-GITHUB_GREENS = {1: '#033A16', 2: '#196C2E', 3: '#2EA043', 4: '#56D364'}
 
 
 def esc(s):
@@ -672,6 +669,7 @@ def heatmap(p):
     for d in days:
         cur = cur + 1 if d['count'] else 0
         best = max(best, cur)
+    alpha = {1: .28, 2: .5, 3: .75, 4: 1}
     ncols = (len(days) + lead + 6) // 7
     grid, labels, last_m, active = '', [], None, []
     for i, d in enumerate(days):
@@ -682,7 +680,7 @@ def heatmap(p):
         if row == 0 and dt.month != last_m and col < ncols - 2:
             labels.append((col, x, dt.strftime('%b').upper()))
             last_m = dt.month
-        grid += f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{GITHUB_EMPTY}"/>'
+        grid += f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{p["line"]}" fill-opacity=".7"/>'
         if d['level']:
             active.append((col, row, d['level']))
 
@@ -719,7 +717,7 @@ def heatmap(p):
     for col, row, lv in active:
         x, y = x0 + col * pitch, y0 + row * pitch
         a = arrive[(col, row)] / dist * f
-        food += (f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{GITHUB_GREENS[lv]}">'
+        food += (f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{p["accent"]}" fill-opacity="{alpha[lv]}">'
                  f'<animate attributeName="opacity" dur="{D:.2f}s" repeatCount="indefinite" values="1;1;0;0;1" '
                  f'keyTimes="0;{a:.4f};{min(a + .002, .97):.4f};.985;1"/></rect>')
     snake = ''

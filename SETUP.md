@@ -45,4 +45,4 @@ The cards carry their own dark background, so they read the same on GitHub's lig
 
 ## Palette
 
-Sodium: amber accent `#FFB547` on warm, tinted near-black panels. The values live in `PALETTES` at the top of `build.py`. The other two palettes there are kept for comparison and are not built. The heatmap is the one exception: its squares always use GitHub's own green scale (`GITHUB_GREENS`), whatever the palette.
+Sodium: amber accent `#FFB547` on warm, tinted near-black panels. The values live in `PALETTES` at the top of `build.py`. The other two palettes there are kept for comparison and are not built.
