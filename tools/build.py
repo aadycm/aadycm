@@ -22,8 +22,8 @@ W = 880
 # manim's smooth rate function near enough
 SMOOTH = 'cubic-bezier(.65,0,.35,1)'
 # github's own dark theme contribution colours so the heatmap keeps its usual green whatever the palette
-GITHUB_EMPTY = '#161B22'
-GITHUB_GREENS = {1: '#0E4429', 2: '#006D32', 3: '#26A641', 4: '#39D353'}
+GITHUB_EMPTY = '#151B23'
+GITHUB_GREENS = {1: '#033A16', 2: '#196C2E', 3: '#2EA043', 4: '#56D364'}
 
 
 def esc(s):
