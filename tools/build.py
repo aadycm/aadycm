@@ -21,6 +21,9 @@ SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 W = 880
 # manim's smooth rate function near enough
 SMOOTH = 'cubic-bezier(.65,0,.35,1)'
+# github's own dark theme contribution colours so the heatmap keeps its usual green whatever the palette
+GITHUB_EMPTY = '#161B22'
+GITHUB_GREENS = {1: '#0E4429', 2: '#006D32', 3: '#26A641', 4: '#39D353'}
 
 
 def esc(s):
@@ -669,20 +672,24 @@ def heatmap(p):
     for d in days:
         cur = cur + 1 if d['count'] else 0
         best = max(best, cur)
-    alpha = {1: .28, 2: .5, 3: .75, 4: 1}
     ncols = (len(days) + lead + 6) // 7
-    grid, months, last_m, active = '', '', None, []
+    grid, labels, last_m, active = '', [], None, []
     for i, d in enumerate(days):
         k = i + lead
         col, row = k // 7, k % 7
         x, y = x0 + col * pitch, y0 + row * pitch
         dt = datetime.date.fromisoformat(d['date'])
         if row == 0 and dt.month != last_m and col < ncols - 2:
-            months += f'<text x="{x}" y="{y0-10}" class="mono faint" font-size="8.5" letter-spacing=".08em">{dt.strftime("%b").upper()}</text>'
+            labels.append((col, x, dt.strftime('%b').upper()))
             last_m = dt.month
-        grid += f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{p["line"]}" fill-opacity=".7"/>'
+        grid += f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{GITHUB_EMPTY}"/>'
         if d['level']:
             active.append((col, row, d['level']))
+
+    # a partial first month sits on top of the next label so drop it like github does
+    if len(labels) > 1 and labels[1][0] - labels[0][0] < 3:
+        labels.pop(0)
+    months = ''.join(f'<text x="{x}" y="{y0-10}" class="mono faint" font-size="8.5" letter-spacing=".08em">{m}</text>' for _, x, m in labels)
 
     # the snake walks grid lines greedily to the nearest square it has not eaten yet
     def c(col, row):
@@ -712,7 +719,7 @@ def heatmap(p):
     for col, row, lv in active:
         x, y = x0 + col * pitch, y0 + row * pitch
         a = arrive[(col, row)] / dist * f
-        food += (f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{p["accent"]}" fill-opacity="{alpha[lv]}">'
+        food += (f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{GITHUB_GREENS[lv]}">'
                  f'<animate attributeName="opacity" dur="{D:.2f}s" repeatCount="indefinite" values="1;1;0;0;1" '
                  f'keyTimes="0;{a:.4f};{min(a + .002, .97):.4f};.985;1"/></rect>')
     snake = ''
