@@ -17,7 +17,7 @@
 </style>
 
 <rect x="4" y="22" width="7" height="7" fill="#A65F00"/>
-<text x="20" y="30" class="mono acc" font-size="11">02  RESEARCH</text>
+<text x="20" y="30" class="mono acc" font-size="11">01  RESEARCH</text>
 <text x="876" y="30" class="mono faint" font-size="10" text-anchor="end">PENN STATE · FALL 2026 – NOW</text>
 <text x="2" y="82" class="serif" font-size="40">Questions I am working on.</text>
 <line x1="4" x2="876" y1="104" y2="104" stroke="#D1D9E0"/>

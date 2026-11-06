@@ -2,7 +2,15 @@
 
 <br>
 
-<picture><source media="(prefers-color-scheme: light)" srcset="A/h-work-light.svg"><img src="A/h-work.svg" width="100%" alt="01 selected work: measured, not claimed"></picture>
+<picture><source media="(prefers-color-scheme: light)" srcset="A/h-research-light.svg"><img src="A/h-research.svg" width="100%" alt="01 research"></picture>
+
+<img src="A/r-injection.svg" width="100%" alt="Prompt-injection defenses research">
+
+<img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research">
+
+<br>
+
+<picture><source media="(prefers-color-scheme: light)" srcset="A/h-work-light.svg"><img src="A/h-work.svg" width="100%" alt="02 selected work: measured, not claimed"></picture>
 
 <a href="https://hydronode.in"><img src="A/card-hydronode.svg" width="100%" alt="HydroNode"></a>
 
@@ -11,14 +19,6 @@
 <a href="https://github.com/aadycm/paper-trail"><img src="A/card-papertrail.svg" width="100%" alt="Paper Trail"></a>
 
 <a href="https://github.com/aadycm/agent-reliability"><img src="A/card-agent.svg" width="100%" alt="Agent Reliability"></a>
-
-<br>
-
-<picture><source media="(prefers-color-scheme: light)" srcset="A/h-research-light.svg"><img src="A/h-research.svg" width="100%" alt="02 research"></picture>
-
-<img src="A/r-injection.svg" width="100%" alt="Prompt-injection defenses research">
-
-<img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research">
 
 <br>
 

@@ -797,14 +797,14 @@ def build(name, out):
     os.makedirs(out, exist_ok=True)
     files = {
         'hero.svg': hero_fourier(p),
-        'h-work.svg': header(p, '01', 'SELECTED WORK', 'Measured, not claimed.', 'FULL WRITE-UPS LIVE IN EACH REPO'),
-        'h-work-light.svg': header(p, '01', 'SELECTED WORK', 'Measured, not claimed.', 'FULL WRITE-UPS LIVE IN EACH REPO', light=True),
+        'h-work.svg': header(p, '02', 'SELECTED WORK', 'Measured, not claimed.', 'FULL WRITE-UPS LIVE IN EACH REPO'),
+        'h-work-light.svg': header(p, '02', 'SELECTED WORK', 'Measured, not claimed.', 'FULL WRITE-UPS LIVE IN EACH REPO', light=True),
         'card-hydronode.svg': hydronode(p),
         'card-semantic.svg': semantic(p),
         'card-papertrail.svg': papertrail(p),
         'card-agent.svg': agent(p),
-        'h-research.svg': header(p, '02', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW'),
-        'h-research-light.svg': header(p, '02', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW', light=True),
+        'h-research.svg': header(p, '01', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW'),
+        'h-research-light.svg': header(p, '01', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW', light=True),
         'r-injection.svg': r_injection(p),
         'r-framing.svg': r_framing(p),
         'h-log.svg': header(p, '03', 'COMMIT LOG', 'Shipping, in public.', 'LAST 12 MONTHS'),

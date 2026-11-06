@@ -17,7 +17,7 @@
 </style>
 
 <rect x="4" y="22" width="7" height="7" fill="#FFB547"/>
-<text x="20" y="30" class="mono acc" font-size="11">01  SELECTED WORK</text>
+<text x="20" y="30" class="mono acc" font-size="11">02  SELECTED WORK</text>
 <text x="876" y="30" class="mono faint" font-size="10" text-anchor="end">FULL WRITE-UPS LIVE IN EACH REPO</text>
 <text x="2" y="82" class="serif" font-size="40">Measured, not claimed.</text>
 <line x1="4" x2="876" y1="104" y2="104" stroke="#2D251C"/>
