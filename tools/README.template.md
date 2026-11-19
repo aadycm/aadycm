@@ -8,6 +8,8 @@
 
 <img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research">
 
+<img src="A/r-sycophancy.svg" width="100%" alt="Sycophancy over time research">
+
 <br>
 
 <picture><source media="(prefers-color-scheme: light)" srcset="A/h-work-light.svg"><img src="A/h-work.svg" width="100%" alt="02 selected work: measured, not claimed"></picture>

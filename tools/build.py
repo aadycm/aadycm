@@ -653,6 +653,40 @@ def r_framing(p):
                  'ADVISOR DR. JEREMY GERNAND · FALL 2026 – NOW', None, m, tl.style(), 'Risk decision research')
 
 
+def r_sycophancy(p):
+    tl = TL(12.0, 'rs')
+    A, Mu, L = p['accent'], p['muted'], p['line']
+    m = tl.text(0, 16, 22, 'TRAIN ON ITS OWN AGREEABLE REPLIES', 'mono faint', 9, off=6.4)
+    m += tl.text(6.7, 16, 22, 'DOES ITS OUTSIDE JUDGMENT SOFTEN?', 'mono acc', 9)
+    # the model answers the user and those replies become its next training set
+    m += box(tl, .3, 16, 70, 74, 44, A)
+    m += tl.text(.7, 53, 97, 'Model', 'serif', 14, 'middle')
+    m += P('M90 84 C116 84 116 62 141 62', tl.draw(1.0, .5), p, Mu)
+    m += P('M135 58 l6 4 l-6 4', tl.draw(1.45, .2), p, Mu)
+    m += box(tl, 1.3, 142, 46, 96, 32, L)
+    m += tl.text(1.6, 190, 66, 'REPLY TO USER', 'mono ink', 7.5, 'middle', extra='letter-spacing=".06em"')
+    m += P('M190 79 V113', tl.draw(2.0, .4), p, Mu)
+    m += P('M186 107 l4 6 l4 -6', tl.draw(2.35, .2), p, Mu)
+    m += box(tl, 2.3, 142, 114, 96, 32, L)
+    m += tl.text(2.6, 190, 134, 'LORA FINE-TUNE', 'mono ink', 7.5, 'middle', extra='letter-spacing=".06em"')
+    # loop back into the model one round after another
+    m += P('M141 130 C116 130 116 106 91 106', tl.undraw(3.0, .6, 4.0, .4, back=4.5), p, A, 'stroke-width="1.4"')
+    m += P('M97 102 l-6 4 l6 4', tl.draw(3.5, .2), p, A, 'stroke-width="1.4"')
+    m += tl.text(3.3, 190, 164, 'ROUND 1 · 2 · 3', 'mono faint', 7.5, 'middle', extra='letter-spacing=".08em"')
+    # then the same model judges a post as a third party
+    m += P('M53 69 V38 H298 V61', tl.draw(5.2, .8), p, Mu)
+    m += P('M294 55 l4 6 l4 -6', tl.draw(5.95, .2), p, Mu)
+    m += box(tl, 5.9, 258, 62, 80, 44, A)
+    m += tl.text(6.2, 298, 82, 'Judge', 'serif', 13, 'middle')
+    m += tl.text(6.4, 298, 97, 'AS 3RD PARTY', 'mono muted', 6.5, 'middle', extra='letter-spacing=".06em"')
+    m += (f'<g class="{tl.indicate(7.6, 1.2)}">'
+          + tl.text(7.0, 298, 130, 'BLAME RATE ?', 'mono acc', 7.5, 'middle', extra='letter-spacing=".08em"') + '</g>')
+    m += tl.text(8.2, 16, 180, 'LLM MODELS · LORA SFT · SELF-TRAINING LOOP', 'mono faint', 8, extra='letter-spacing=".1em"')
+    return rcard(p, 'R3 · LLM ALIGNMENT · FINE-TUNING', 'Sycophancy over time',
+                 'LoRA self-training of LLMs on their own sycophantic, user-facing outputs, measuring whether third-party moral judgments drift softer across rounds.',
+                 'ADVISOR DR. SARAH RAJTMAJER · FALL 2026 – NOW', None, m, tl.style(), 'Sycophancy over time research')
+
+
 # ---------- heatmap with a snake ----------
 
 def heatmap(p):
@@ -807,6 +841,7 @@ def build(name, out):
         'h-research-light.svg': header(p, '01', 'RESEARCH', 'Questions I am working on.', 'PENN STATE · FALL 2026 – NOW', light=True),
         'r-injection.svg': r_injection(p),
         'r-framing.svg': r_framing(p),
+        'r-sycophancy.svg': r_sycophancy(p),
         'h-log.svg': header(p, '03', 'COMMIT LOG', 'Shipping, in public.', 'LAST 12 MONTHS'),
         'h-log-light.svg': header(p, '03', 'COMMIT LOG', 'Shipping, in public.', 'LAST 12 MONTHS', light=True),
         'heatmap.svg': heatmap(p),
