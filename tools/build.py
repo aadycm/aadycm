@@ -650,7 +650,7 @@ def r_framing(p):
     m += tl.text(7.6, 16, 180, 'STUDENT-LED · EXPERIMENT IN DESIGN', 'mono faint', 8, extra='letter-spacing=".1em"')
     return rcard(p, 'R2 · DECISIONS · HUMANS AND LLMS', 'Humans vs LLMs on risk',
                  'A student-led study of how the initial framing of a scenario shapes what humans and LLMs prioritize when safety and environmental risk is ambiguous.',
-                 'ADVISOR DR. JEREMY GERNAND · FALL 2026 – NOW', None, m, tl.style(), 'Risk decision research')
+                 'ADVISOR DR. JEREMY GERNAND · FALL 2026 – NOW', 'VIEW REPO →', m, tl.style(), 'Risk decision research')
 
 
 def r_sycophancy(p):

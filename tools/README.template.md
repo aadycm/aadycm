@@ -6,7 +6,7 @@
 
 <img src="A/r-injection.svg" width="100%" alt="Prompt-injection defenses research">
 
-<img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research">
+<a href="https://github.com/aadycm/Humans-Vs-LLM-Research"><img src="A/r-framing.svg" width="100%" alt="Humans vs LLMs on risk research"></a>
 
 <img src="A/r-sycophancy.svg" width="100%" alt="Sycophancy over time research">
 
